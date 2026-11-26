@@ -1,0 +1,149 @@
+{
+  "topic": "二次函数复习",
+  "subject": "数学",
+  "grade": "九年级",
+  "lessonType": "习题课",
+  "duration": 45,
+  "focus": [
+    "基础题精讲",
+    "比较变式"
+  ],
+  "objectives": [
+    "由一般式配方求顶点",
+    "改变开口方向后重新判断最值",
+    "写出横轴交点并代入验算"
+  ],
+  "keyPoints": [
+    "配方与顶点",
+    "方程根与横轴交点",
+    "开口方向与最值"
+  ],
+  "knowledgePoints": [
+    "配方与顶点",
+    "方程根与横轴交点",
+    "开口方向与最值"
+  ],
+  "difficulties": [
+    "在改变条件后重新选择解法"
+  ],
+  "structure": [
+    {
+      "section": "目标",
+      "role": "objectives",
+      "pages": 1,
+      "minutes": 2,
+      "note": "根据问题选择配方或因式分解",
+      "covers": []
+    },
+    {
+      "section": "知识回顾",
+      "role": "formula",
+      "pages": 1,
+      "minutes": 4,
+      "note": "从顶点式读出对称轴与顶点",
+      "covers": [
+        "配方与顶点"
+      ]
+    },
+    {
+      "section": "基础题一",
+      "role": "exercise",
+      "pages": 1,
+      "minutes": 5,
+      "note": "配方求最低点",
+      "covers": [
+        "配方与顶点"
+      ]
+    },
+    {
+      "section": "基础题二",
+      "role": "exercise",
+      "pages": 1,
+      "minutes": 5,
+      "note": "令函数值为零求交点",
+      "covers": [
+        "方程根与横轴交点"
+      ]
+    },
+    {
+      "section": "平移变式",
+      "role": "variant",
+      "pages": 1,
+      "minutes": 4,
+      "note": "上下平移后重新判断最值",
+      "covers": [
+        "配方与顶点"
+      ]
+    },
+    {
+      "section": "翻折变式",
+      "role": "variant",
+      "pages": 1,
+      "minutes": 4,
+      "note": "比较开口方向与最值类型",
+      "covers": [
+        "开口方向与最值"
+      ]
+    },
+    {
+      "section": "当堂练",
+      "role": "practice",
+      "pages": 1,
+      "minutes": 5,
+      "note": "由平方方程判交点个数",
+      "covers": [
+        "方程根与横轴交点"
+      ]
+    },
+    {
+      "section": "互查",
+      "role": "compare",
+      "pages": 1,
+      "minutes": 3,
+      "note": "交换草稿检查取等条件",
+      "covers": [
+        "开口方向与最值"
+      ]
+    },
+    {
+      "section": "错因归类",
+      "role": "mistake",
+      "pages": 1,
+      "minutes": 5,
+      "note": "归类补平方、判开口与写坐标的错误",
+      "covers": []
+    },
+    {
+      "section": "再练",
+      "role": "practice",
+      "pages": 1,
+      "minutes": 4,
+      "note": "换一个常数重新判断交点",
+      "covers": []
+    },
+    {
+      "section": "小结",
+      "role": "summary",
+      "pages": 1,
+      "minutes": 2,
+      "note": "说出选择方法的依据",
+      "covers": []
+    },
+    {
+      "section": "作业",
+      "role": "homework",
+      "pages": 1,
+      "minutes": 2,
+      "note": "换一条抛物线独立完成综合题",
+      "covers": []
+    }
+  ],
+  "questions": {
+    "inClass": 7,
+    "homework": 2
+  },
+  "media": [],
+  "outOfScope": [
+    "二次函数应用建模"
+  ]
+}

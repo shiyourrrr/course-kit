@@ -1,0 +1,14 @@
+<div class="kicker">学习目标</div>
+<h2 class="title">{{title}}</h2>
+<div class="rule"></div>
+<div class="body">
+  <div class="aims">
+    {{#items}}
+    <div class="aim"{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>
+      <span class="aim-num">{{num}}</span>
+      <span class="aim-text">{{text}}</span>
+    </div>
+    {{/items}}
+  </div>
+</div>
+{{#footnote}}<div class="footnote">{{footnote}}</div>{{/footnote}}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>course-kit 作品集</title>
+<style>
+  :root{
+    --paper:#faf8f3; --ink:#1f2a24; --muted:#6b7268; --line:#ddd7c9;
+    --green:#14532d; --rust:#a2542b;
+    --serif:"Songti SC","SimSun","Noto Serif SC",serif;
+    --ui:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);line-height:1.7}
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 28px 80px}
+  .rule{height:4px;background:var(--green);width:100%;margin-bottom:34px}
+  .kicker{font-size:13px;letter-spacing:.24em;color:var(--rust);margin-bottom:14px}
+  h1{font-family:var(--serif);font-size:52px;line-height:1.2;margin:0 0 14px;letter-spacing:.01em}
+  .sub{color:var(--muted);font-size:19px;margin:0 0 44px}
+  h2{font-family:var(--serif);font-size:26px;margin:44px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .note{color:var(--muted);font-size:15px;margin:8px 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  a.card{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none;color:inherit;transition:.18s}
+  a.card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,42,36,.08)}
+  .name{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:6px}
+  .meta{color:var(--muted);font-size:14px}
+  .tag{display:inline-block;font-size:12px;letter-spacing:.08em;color:var(--green);border:1px solid #cfe0d2;background:#f1f7f2;border-radius:999px;padding:1px 9px;margin-left:8px;vertical-align:2px}
+  .foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  code{font-family:Consolas,monospace;background:#f1eee6;padding:1px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="rule"></div>
+  <div class="kicker">COURSE-KIT · 2026-11-21</div>
+  <h1>作品集</h1>
+  <p class="sub">三节完整的课、两套题单、五个课件、三套模板。全部是单文件 HTML，断网可放。</p>
+
+  <h2>课件</h2>
+  <p class="note">双击打开，按 <code>F</code> 全屏、方向键翻页、<code>Esc</code> 总览、<code>A</code> 关动效。</p>
+  <div class="grid">
+    <a class="card" href="examples/erci.deck.html">
+      <div class="name">二次函数 y = ax² 的图像与性质<span class="tag">主作品</span></div>
+      <div class="meta">九年级 · 19 页 · 10 个知识点全覆盖 · 含性质表与增减趋势</div>
+    </a>
+    <a class="card" href="examples/gougu.deck.html">
+      <div class="name">勾股定理</div>
+      <div class="meta">八年级 · 11 页 · 面积法证明（点击逐步）· 含三边正方形图</div>
+    </a>
+    <a class="card" href="examples/yicihanshu.deck.html">
+      <div class="name">一次函数</div>
+      <div class="meta">八年级 · 12 页 · 图像页自由编排 · 待定系数法四步推导</div>
+    </a>
+    <a class="card" href="examples/cinema-gougu.deck.html">
+      <div class="name">勾股定理（电影感风格）</div>
+      <div class="meta">第二视觉 · 6 页 · 暗色封面 + 米色内页 · 公开课/家长会用</div>
+    </a>
+    <a class="card" href="examples/cinema.deck.html">
+      <div class="name">电影感视觉试验</div>
+      <div class="meta">2 页 · 封面与内页的视觉样张</div>
+    </a>
+    <a class="card" href="examples/imported-demo.deck.html">
+      <div class="name">导入模板示例</div>
+      <div class="meta">3 页 · 从第三方 HTML 模板导入，自动切页与推断槽位</div>
+    </a>
+    <a class="card" href="examples/tixi.deck.html">
+      <div class="name">习题课：二次函数复习<span class="tag">新课型</span></div>
+      <div class="meta">8 页 · 习题精讲 / 变式训练 / 错因归类</div>
+    </a>
+    <a class="card" href="examples/jiangping.deck.html">
+      <div class="name">试卷讲评：二次函数单元测<span class="tag">新课型</span></div>
+      <div class="meta">9 页 · 总体情况 / 错误率 / 典型错题讲评</div>
+    </a>
+  </div>
+
+  <h2>题单</h2>
+  <p class="note">A4 打印：浏览器 <code>Ctrl+P</code> 直接存 PDF。学生版无答案，教师版带勾选与解析。</p>
+  <div class="grid">
+    <a class="card" href="examples/questions-erci-student.html">
+      <div class="name">二次函数 · 课后练习（学生版）</div>
+      <div class="meta">8 题 · 单选/多选/判断/填空/解答</div>
+    </a>
+    <a class="card" href="examples/questions-erci-teacher.html">
+      <div class="name">二次函数 · 课后练习（教师版）</div>
+      <div class="meta">8 题 · 正确项勾选 + 答案 + 解析</div>
+    </a>
+    <a class="card" href="examples/questions-student.html">
+      <div class="name">勾股定理 · 随堂练习（学生版）</div>
+      <div class="meta">5 题</div>
+    </a>
+    <a class="card" href="examples/questions-teacher.html">
+      <div class="name">勾股定理 · 随堂练习（教师版）</div>
+      <div class="meta">5 题 · 含解析</div>
+    </a>
+  </div>
+
+  <h2>网页工作台</h2>
+  <div class="grid">
+    <a class="card" href="README.md">
+      <div class="name">双击 start.bat 启动</div>
+      <div class="meta">三栏界面：选课件 / 管页面 / 改字段，改字实时预览，一键导出 HTML</div>
+    </a>
+    <a class="card" href="STATUS.md">
+      <div class="name">当前状态与待办</div>
+      <div class="meta">已完成 / 已验证 / 还差什么</div>
+    </a>
+    <a class="card" href="SPEC.md">
+      <div class="name">模板包协议</div>
+      <div class="meta">14 个页型、字段槽位、动效属性、导入规则</div>
+    </a>
+  </div>
+
+  <h2>方案卡</h2>
+  <p class="note">生成课件之前先给老师确认的纸：页数、每段几分钟、知识点覆盖。</p>
+  <div class="grid">
+    <a class="card" href="examples/plan-erci.json">
+      <div class="name">二次函数 · 17 页 / 46′</div>
+      <div class="meta">10 条知识点全部有页面认领</div>
+    </a>
+    <a class="card" href="examples/plan-yicihanshu.json">
+      <div class="name">一次函数 · 12 页 / 45′</div>
+      <div class="meta">情境 + 概念 + 推导 + 例题 + 变式</div>
+    </a>
+  </div>
+
+  <div class="foot">
+    course-kit · 本地网页工作台 + 命令行引擎 · 模板：math-junior（14 页型）/ cinema（4 页型）/ 导入模板<br>
+    所有课件均为单文件、零外链，可直接发微信或拷 U 盘。
+  </div>
+</div>
+</body>
+</html>

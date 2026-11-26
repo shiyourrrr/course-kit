@@ -1,0 +1,12 @@
+<div class="example-head">
+  {{#tag}}<span class="tag">{{tag}}</span>{{/tag}}
+  <h2 class="title">{{title}}</h2>
+</div>
+<div class="body">
+  <p class="stem">{{stem}}</p>
+  {{#tip}}<p class="tips">{{tip}}</p>{{/tip}}
+  <ol class="steps">
+    {{#steps}}<li{{^configuredBuild}} data-build="{{@no}}"{{/configuredBuild}}{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{text}}</li>{{/steps}}
+  </ol>
+  {{#answer}}<div class="answer"{{^configuredBuild}} data-build="99"{{/configuredBuild}}><span class="label">答案</span>{{answer}}</div>{{/answer}}
+</div>

@@ -1,0 +1,7 @@
+.slide [data-ck-move] { translate: var(--ck-dx) var(--ck-dy) !important; }
+.slide [data-ck-hidden] { display:none!important; }
+.slide [data-ck-width] { box-sizing: border-box !important; }
+.slide [data-ck-width="-1"] { width: 80% !important; }
+.slide [data-ck-width="1"] { width: 120% !important; }
+.slide [data-ck-w] { box-sizing: border-box !important; width: var(--ck-w) !important; min-width: var(--ck-w) !important; max-width: var(--ck-w) !important; }
+.slide [data-ck-h] { box-sizing: border-box !important; height: var(--ck-h) !important; min-height: var(--ck-h) !important; max-height: var(--ck-h) !important; }

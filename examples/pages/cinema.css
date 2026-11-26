@@ -1,0 +1,242 @@
+/* 电影感视觉系统 · 第一批：暖黑封面 + 米色内页
+   只改视觉，不动 base.css 的舞台与缩放规则 */
+
+.cine {
+  --fg: #fff1de;
+  --dim: rgba(255, 241, 222, 0.55);
+  --line: rgba(199, 179, 151, 0.26);
+  --accent: #c7b397;
+
+  position: absolute;
+  /* 满幅：slide 的 padding box 是 1128×604，用固定尺寸 + 居中偏移铺满 1280×720。
+     负 margin 会让盒子被撑大（浏览器把两侧负 margin 都算进宽度），别再用。 */
+  left: 50%;
+  top: 50%;
+  width: 1280px;
+  height: 720px;
+  transform: translate(-50%, -50%);
+  padding: 64px 60px 46px;
+  display: flex;
+  flex-direction: column;
+  color: var(--fg);
+  background:
+    radial-gradient(1100px 680px at 72% 18%, #4a2b1c 0%, rgba(74, 43, 28, 0) 62%),
+    radial-gradient(900px 620px at 16% 92%, #3a1f14 0%, rgba(58, 31, 20, 0) 58%),
+    #241b19;
+  font-family: "Songti SC", "SimSun", "Noto Serif SC", serif;
+}
+
+/* 有背景图时，让背景透出来；渐变只在没图时兜底 */
+.cine-over-photo { background: transparent; }
+
+/* 极细噪点，避免大面积纯色发死 */
+.cine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.cine > * { position: relative; z-index: 1; }
+
+.cine-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  color: var(--dim);
+}
+
+.cine .sep { opacity: 0.45; margin: 0 6px; }
+
+.cine-counter {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.14em;
+  font-size: 16px;
+}
+
+.cine .dim { color: var(--dim); }
+
+.cine-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 780px;
+}
+
+.cine-kicker {
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  margin-bottom: 26px;
+}
+
+.cine-title {
+  font-size: 104px;
+  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.cine-title-sm { font-size: 54px; line-height: 1.24; }
+
+.cine-sub {
+  margin: 28px 0 0;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 25px;
+  line-height: 1.8;
+  color: rgba(255, 241, 222, 0.86);
+}
+
+.cine-cta {
+  align-self: flex-start;
+  margin-top: 42px;
+  padding: 14px 28px;
+  border: 1px solid rgba(199, 179, 151, 0.5);
+  border-radius: 999px;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 18px;
+  color: #fff4dd;
+  cursor: pointer;
+  transition: background 0.24s ease, border-color 0.24s ease;
+}
+
+.cine-cta:hover { background: #5a321e; border-color: #c7b397; }
+.cine-cta .arrow { margin-left: 8px; }
+
+.cine-hint {
+  margin: 18px 0 0;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 241, 222, 0.42);
+}
+
+.cine-hotspots {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  z-index: 2;
+}
+
+.cine-pill {
+  padding: 11px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(199, 179, 151, 0.38);
+  background: rgba(36, 27, 25, 0.55);
+  color: #fff1de;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+}
+
+.cine-pill:hover {
+  background: #5a321e;
+  border-color: #c7b397;
+  transform: translateX(-4px);
+}
+
+.cine-foot {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  color: var(--dim);
+}
+
+/* ---------- 米色内页 ---------- */
+
+.cine-paper {
+  --fg: #2a2521;
+  --dim: #7a6f63;
+  --line: rgba(42, 37, 33, 0.14);
+  --accent: #8a3b1e;
+
+  color: var(--fg);
+  background: #f5f2e9;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+.cine-paper::after { opacity: 0.028; }
+
+.cine-paper .cine-kicker { color: #8a3b1e; margin-bottom: 18px; }
+
+/* 内页大标题也走宋体：参考站点是「宋体标题 + 无衬线正文」的对比，别让标题变成黑体 */
+.cine-paper .cine-title {
+  font-family: "Songti SC", "SimSun", "Noto Serif SC", serif;
+  font-weight: 700;
+}
+
+.cine-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cine-cols {
+  display: grid;
+  grid-template-columns: 1.02fr 1fr;
+  gap: 60px;
+  margin-top: 44px;
+  align-items: start;
+}
+
+.cine-figure {
+  background: #fffdf8;
+  border: 1px solid rgba(42, 37, 33, 0.1);
+  border-radius: 6px;
+  padding: 34px 24px;
+  text-align: center;
+  box-shadow: 0 20px 44px rgba(42, 37, 33, 0.09);
+}
+
+.cine-figure .katex { font-size: 2em; }
+
+.cine-caption { margin-top: 12px; font-size: 15px; color: #8a7f72; }
+
+.cine-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+.cine-chip {
+  font-size: 15px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(42, 37, 33, 0.16);
+  color: #5a5148;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cine-chip.is-on { background: #8a3b1e; border-color: #8a3b1e; color: #fff6ec; }
+
+.cine-right h3 {
+  font-family: "Songti SC", "SimSun", serif;
+  font-size: 31px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.cine-right p {
+  margin: 0 0 14px;
+  font-size: 19px;
+  line-height: 1.9;
+  color: #3c352f;
+}
+
+.cine-right hr {
+  border: 0;
+  border-top: 1px solid rgba(42, 37, 33, 0.14);
+  margin: 20px 0;
+}

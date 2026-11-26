@@ -1,0 +1,33 @@
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f1f5f9;
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --ink-3: #64748b;
+  --accent: #2563eb;
+  --accent-ink: #ffffff;
+  --accent-soft: #dbeafe;
+  --signal: #ea580c;
+  --line: #cbd5e1;
+  --font-display: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  --font-body: var(--font-sans);
+}
+/* 活力蓝橙：数学坐标方格纸底纹 + 现代无衬线粗标题 + 撞色顶条卡片 */
+.slide {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.slide h1, .slide h2 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.slide .card, .slide .formula-box, .slide .note-item {
+  border-radius: 14px;
+  border: 1.5px solid #dbeafe;
+  border-top: 4px solid var(--signal);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
+}

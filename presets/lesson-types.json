@@ -1,0 +1,20 @@
+[
+  {
+    "id": "new",
+    "name": "新授课",
+    "when": "第一次讲新知识：情境 → 概念 → 推导 → 例题",
+    "pages": ["cover","objectives","context","concept","formula","derive","example","practice","compare","summary","homework"]
+  },
+  {
+    "id": "exercise",
+    "name": "习题课",
+    "when": "讲评练习：习题精讲 → 变式 → 错因归类",
+    "pages": ["cover","objectives","exercise","exercise","variant","practice","mistake","summary","homework"]
+  },
+  {
+    "id": "review",
+    "name": "试卷讲评",
+    "when": "考后讲评：总体情况 → 错误率 → 典型错题 → 订正",
+    "pages": ["cover","score","table","table","wrong","wrong","wrong","mistake","homework","summary"]
+  }
+]

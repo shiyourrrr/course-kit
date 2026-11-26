@@ -1,0 +1,12 @@
+<div class="cine cine-cover">
+  <header class="cine-top"><span>{{meta.grade}} · {{meta.subject}}</span><span>{{#duration}}{{duration}} 分钟{{/duration}}</span></header>
+  <div class="cine-cover-body">
+    <div><div class="cine-kicker">{{kicker}}</div><h1 data-anim="fade-up">{{title}}</h1>
+      {{#subtitle}}<p class="cine-sub">{{subtitle}}</p>{{/subtitle}}
+      {{#cta}}<button class="cine-cta" data-goto="{{ctaGoto}}">{{cta}} <span>→</span></button>{{/cta}}
+      {{#hint}}<p class="cine-hint">{{hint}}</p>{{/hint}}
+    </div>
+    <nav class="cine-hotspots">{{#hotspots}}<button data-goto="{{goto}}"><span>{{@no}}</span>{{label}} <b>↗</b></button>{{/hotspots}}</nav>
+  </div>
+  <footer class="cine-foot"><span>{{meta.subject}} · {{meta.title}}</span><span>全屏 F</span></footer>
+</div>

@@ -1,0 +1,14 @@
+:root {
+  --bg: #faf9f4;
+  --bg-soft: #efeee7;
+  --ink: #202823;
+  --ink-2: #39413c;
+  --ink-3: #59615b;
+  --accent: #17574e;
+  --accent-ink: #ffffff;
+  --accent-soft: #e7efea;
+  --signal: #984721;
+  --line: #c5c8bf;
+  --font-display: "Songti SC", SimSun, "Noto Serif CJK SC", serif;
+  --font-body: var(--font-sans);
+}

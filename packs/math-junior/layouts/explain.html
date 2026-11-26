@@ -1,0 +1,23 @@
+<div class="kicker">{{#kicker}}{{kicker}}{{/kicker}}{{^kicker}}看图{{/kicker}}</div>
+<h2 class="title">{{title}}</h2>
+<div class="body">
+  <div class="cols">
+    <div class="c7">
+      <div class="figure explain-figure" data-anim="fade">{{#img}}{{{img}}}{{/img}}{{#svg}}{{{svg}}}{{/svg}}</div>
+      {{#caption}}<p class="caption">{{caption}}</p>{{/caption}}
+    </div>
+    <div class="c5">
+      <div class="notes" data-stagger>
+        {{#points}}
+        <div class="note-item" data-anim="fade-up"{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>
+          <span class="note-num">{{num}}</span>
+          <div class="note-body">
+            {{#term}}<b>{{term}}</b>{{/term}}
+            <div class="note-text">{{text}}</div>
+          </div>
+        </div>
+        {{/points}}
+      </div>
+    </div>
+  </div>
+</div>

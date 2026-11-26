@@ -1,0 +1,46 @@
+{
+  "id": "imported-杂志风",
+  "name": "杂志风",
+  "subject": "通用",
+  "grade": "通用",
+  "version": "0.1.0",
+  "license": "导入模板：请核对原模板许可证",
+  "source": "自制",
+  "theme": "theme.css",
+  "limits": {
+    "title": 40,
+    "text": 200,
+    "text2": 200,
+    "text3": 200
+  },
+  "layouts": [
+    {
+      "id": "page-1",
+      "name": "第 1 页",
+      "when": "导入模板的原始页面",
+      "slots": [
+        "title",
+        "text"
+      ]
+    },
+    {
+      "id": "page-2",
+      "name": "第 2 页",
+      "when": "导入模板的原始页面",
+      "slots": [
+        "title",
+        "text",
+        "text2"
+      ]
+    },
+    {
+      "id": "page-3",
+      "name": "第 3 页",
+      "when": "导入模板的原始页面",
+      "slots": [
+        "title",
+        "text"
+      ]
+    }
+  ]
+}

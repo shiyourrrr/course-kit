@@ -1,0 +1,102 @@
+/* 初中数学 · 课堂讲义。字号对应封面、页题、小标题、正文与索引。 */
+:root {
+  --display: 72px;
+  --h1: 44px;
+  --h2: 28px;
+  --body-size: 22px;
+  --caption: 16px;
+  --accent: #17574e;
+  --accent-ink: #fff;
+  --accent-soft: #e7efea;
+  --signal: #984721;
+  --bg: #faf9f4;
+  --bg-soft: #efeee7;
+  --ink: #202823;
+  --ink-2: #39413c;
+  --ink-3: #59615b;
+  --line: #c5c8bf;
+  --radius: 2px;
+  --gap: 24px;
+  --pad-x: 72px;
+  --pad-y: 48px;
+}
+.slide:not([data-layout="custom"]) { font-size: calc(var(--body-size) * var(--page-scale, 1)); }
+.kicker, .card .card-num, .cover .subject {
+  font-size: calc(var(--caption) * var(--page-scale, 1));
+  letter-spacing: .12em;
+  font-variant-numeric: tabular-nums;
+}
+.kicker { width: 100%; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.kicker::before { width: 24px; height: 4px; border-radius: 0; }
+h2.title, .cover h1.title {
+  letter-spacing: -.035em;
+  text-wrap: balance;
+  font-family: var(--font-display, "Songti SC", SimSun, "Noto Serif CJK SC", serif);
+}
+h2.title { font-size: calc(var(--h1) * var(--page-scale, 1)); margin-top: 16px; }
+.lead { margin-top: 16px; font-size: calc(var(--body-size) * var(--page-scale, 1)); }
+.cover { background: var(--bg); }
+.cover .subject { border-top: 4px solid currentColor; padding-top: 16px; }
+.cover h1.title { margin-top: 48px; font-size: calc(var(--display) * var(--page-scale, 1)); }
+.cover .subtitle { margin-top: 24px; line-height: 1.68; }
+.cover .meta { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line); gap: 24px; }
+.cover .meta:empty { display: none; }
+.card, .cmp-col {
+  padding: 24px 16px;
+  border: 0;
+  border-top: 3px solid var(--accent);
+  background: transparent;
+}
+.card .card-num { margin-bottom: 16px; color: var(--signal); }
+.card .card-term, .cmp-col h3, .closing, .scene-q { font-size: calc(var(--h2) * var(--page-scale, 1)); }
+.card .card-text { margin: 8px 0 0; font-size: calc(var(--body-size) * var(--page-scale, 1)); line-height: 1.68; }
+.aim, .tasks li { border-radius: 0; background: transparent; border-bottom: 1px solid var(--line); }
+.aim { padding: 16px 0; align-items: baseline; gap: 24px; }
+.aim .aim-num, .note-num, .derive li::before, .steps li::before {
+  border-radius: 0;
+  color: var(--accent);
+  background: transparent;
+  font: 700 var(--caption)/1.5 var(--font-mono);
+  border-top: 2px solid currentColor;
+}
+.aim .aim-text, .tasks li, .points li, .steps li, .derive-text {
+  font-size: calc(var(--body-size) * var(--page-scale, 1)); line-height: 1.68;
+}
+.scene { padding: 32px; background: var(--bg-soft); }
+.scene-text, .scene-q { line-height: 1.68; }
+.scene-q { border-top-style: solid; }
+.tag { border-radius: 2px; padding: 4px 12px; }
+.formula-box {
+  padding: 40px 24px;
+  border: solid var(--accent);
+  border-width: 2px 0 1px;
+  border-radius: 0;
+}
+.slide .katex { font-size: 1.05em; }
+.slide .formula-box .katex { font-size: 1.8em; }
+.cond, .tips, .derive-why, .note-body .note-text, details.hint {
+  font-size: calc(20px * var(--page-scale, 1)); line-height: 1.68;
+}
+.caption, .footnote { font-size: calc(var(--caption) * var(--page-scale, 1)); }
+.caption { margin-top: 8px; }
+.notes { gap: 16px; }
+.note-item { border-top: 1px solid var(--line); padding-top: 8px; gap: 16px; }
+.note-num { border: 0; }
+.note-body b { font-size: calc(24px * var(--page-scale, 1)); }
+.derive, .steps { gap: 16px; }
+.derive li, .steps li { padding-left: 48px; }
+.derive li::before { content: counter(derive, decimal-leading-zero); }
+.steps li::before { content: counter(step, decimal-leading-zero); }
+.example-head { padding-bottom: 16px; border-bottom: 1px solid var(--line); gap: 16px; }
+.answer, .verdict, details.answer { border-radius: 0; border-left: 4px solid var(--signal); background: var(--bg-soft); line-height: 1.68; }
+.answer .label, details.answer summary { color: var(--signal); }
+details.hint { border-radius: 2px; }
+.cmp-col.is-alt { border-top-color: var(--signal); }
+.points li::before { width: 16px; height: 3px; border-radius: 0; top: .8em; }
+.closing { padding-top: 16px; border-top: 1px solid var(--line); color: var(--accent); }
+.table { font-size: calc(20px * var(--page-scale, 1)); line-height: 1.68; border-top: 3px solid var(--accent); }
+.table th, .table td { padding: 8px 16px; }
+.table th { color: var(--accent); background: var(--accent-soft); }
+.table td:first-child { font-weight: 650; }
+/* optional deck typography */
+body { font-family: var(--font-body, var(--font-sans)); }

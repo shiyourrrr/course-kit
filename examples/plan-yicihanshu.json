@@ -1,0 +1,29 @@
+{
+  "topic": "一次函数",
+  "subject": "数学",
+  "grade": "八年级",
+  "lessonType": "新授课",
+  "duration": 45,
+  "focus": ["概念讲透", "会做题"],
+  "objectives": [
+    "说出一次函数的一般式，并解释 $k \\ne 0$ 为什么不能少",
+    "由图像判断 $k$、$b$ 的符号，也能反过来由符号画草图",
+    "用待定系数法求解析式，并会代回检验"
+  ],
+  "keyPoints": ["$k$ 与图像方向的关系", "待定系数法四步口诀"],
+  "difficulties": ["把“过两点”翻译成两个方程", "$b$ 的几何意义"],
+  "structure": [
+    { "section": "开场", "role": "cover+objectives", "pages": 2, "minutes": 2, "note": "封面 + 学习目标" },
+    { "section": "情境导入", "role": "context", "pages": 1, "minutes": 4, "note": "打车计费，引出“每多一公里多固定钱”" },
+    { "section": "定义与一般式", "role": "concept+formula", "pages": 2, "minutes": 9, "note": "三个要点 + 一般式与条件" },
+    { "section": "图像与 $k$、$b$", "role": "custom", "pages": 1, "minutes": 8, "note": "坐标系两条线，讲方向与交点" },
+    { "section": "待定系数法", "role": "derive", "pages": 1, "minutes": 8, "note": "设、代、解、验四步" },
+    { "section": "例题", "role": "example", "pages": 1, "minutes": 6, "note": "已知两点求解析式，点按逐步" },
+    { "section": "变式", "role": "practice", "pages": 1, "minutes": 3, "note": "已知斜边求直角边，提示折叠" },
+    { "section": "辨析", "role": "compare", "pages": 1, "minutes": 2, "note": "正比例 vs 一次，先左后右" },
+    { "section": "小结与作业", "role": "summary+homework", "pages": 2, "minutes": 3, "note": "三句话 + 分层作业" }
+  ],
+  "questions": { "inClass": 1, "homework": 4 },
+  "media": ["坐标系图：$k>0$ 与 $k<0$ 两条直线"],
+  "outOfScope": ["分段函数（留到下节）", "复杂应用题建模"]
+}

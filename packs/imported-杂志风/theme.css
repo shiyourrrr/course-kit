@@ -1,0 +1,59 @@
+/* 导入自第三方模板：杂志风
+   原始文件：demo-magazine.html
+   来源：自制
+
+   注意：导入模板通常自带整套版式与内边距，所以这里把 base.css 的默认内边距清零。
+   如果你发现页面贴边，删掉下面这条规则即可。 */
+
+.slide { padding: 0; }
+
+/* 隔离：导入模板常用 .tag/.card/.title 这类通用类名，
+   会和 base.css 的组件撞车（例如 .tag 被渲染成灰条）。
+   这里先把这些类名在 .tpl-page 内部恢复成浏览器默认，再由模板自己的样式覆盖。 */
+.tpl-page :where(.tag,.kicker,.title,.lead,.rule,.footnote,.card,.card-num,.card-term,.card-text,
+  .panel,.panel-soft,.callout,.callout-title,.stat,.table,.steps,.answer,.stem,.figure,.figure-img,
+  .caption,.cmp,.cmp-col,.verdict,.points,.tasks,.tips,.aims,.aim,.aim-num,.aim-text,
+  .grid,.cols,.stack,.row,.c3,.c4,.c5,.c6,.c7,.c8,.c9,.c12,.muted,.accent,.small,.center,
+  .spacer,.mono,.nowrap,.body,.example-head,.formula-box,.cond,.explain,.hint) { all: revert; }
+
+
+.slide { margin: 0; background: #f4efe6; color: #23201c;
+         font-family: "Noto Serif SC", "Songti SC", serif; }
+  .tpl-page { height: 720px; padding: 88px 96px; box-sizing: border-box;
+            display: flex; flex-direction: column; justify-content: center;
+            border-bottom: 1px solid #d8cec0; }
+  h1 { font-size: 76px; margin: 0 0 28px; letter-spacing: .02em; }
+  h2 { font-size: 46px; margin: 0 0 24px; }
+  p  { font-size: 24px; line-height: 1.85; margin: 0 0 18px; max-width: 880px; color: #4a423a; }
+  .tag { font-size: 16px; letter-spacing: .24em; color: #a2603c; margin-bottom: 18px; }
+
+/* course-kit: imported presentation chrome */
+@media screen {
+  html {
+    --screen-w: min(100vw, 177.77778vh);
+    --screen-h: min(100vh, 56.25vw);
+    --rail-y: calc((100vh - var(--screen-h)) / 2 + var(--screen-h) * .011);
+    --rail-x: calc((100vw - var(--screen-w)) / 2 + var(--screen-w) * .028);
+    --rail-type: min(1.1vw, 1.96vh);
+  }
+  body:not(.overview) .stage { background: #f7f6f2; }
+  body:not(.overview) .deck { bottom: 5%; }
+  body:not(.overview) .slide > .tpl-page { zoom: .95; }
+  body:not(.overview) .hud { left: 0; right: 0; width: max-content; margin-inline: auto; }
+  body:not(.overview) .hud.is-idle { opacity: 1; }
+  body:not(.overview) .hud button { background: #30322f; color: white; }
+  body:not(.overview) .hud.is-idle:not(:focus-within) button { opacity: 0; }
+  body:not(.overview) .hud .pager, head > title {
+    position: fixed; z-index: 31; bottom: var(--rail-y);
+    font: 500 var(--rail-type)/1.4 var(--font-sans);
+    letter-spacing: .04em; color: #272b26; opacity: .66; pointer-events: none;
+  }
+  body:not(.overview) .hud .pager { right: var(--rail-x); font-variant-numeric: tabular-nums; }
+  html:has(.stage:hover) :is(head > title, .hud .pager) { opacity: .93; }
+  html:has(body:not(.overview)) > head { display: contents; }
+  html:has(body:not(.overview)) > head > title {
+    display: block; left: var(--rail-x); max-width: calc(var(--screen-w) * .45);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+}
+/* end course-kit presentation chrome */

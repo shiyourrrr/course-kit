@@ -1,0 +1,19 @@
+<div class="kicker">{{#kicker}}{{kicker}}{{/kicker}}{{^kicker}}对比辨析{{/kicker}}</div>
+<h2 class="title">{{title}}</h2>
+<div class="body">
+  <div class="cmp">
+    <div class="cmp-col"{{^configuredBuild}} data-build="1"{{/configuredBuild}}>
+      <h3>{{left.title}}</h3>
+      <ul>
+        {{#left.items}}<li{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{text}}</li>{{/left.items}}
+      </ul>
+    </div>
+    <div class="cmp-col is-alt"{{^configuredBuild}} data-build="2"{{/configuredBuild}}>
+      <h3>{{right.title}}</h3>
+      <ul>
+        {{#right.items}}<li{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{text}}</li>{{/right.items}}
+      </ul>
+    </div>
+  </div>
+  {{#verdict}}<div class="verdict"{{^configuredBuild}} data-build="3"{{/configuredBuild}}>{{verdict}}</div>{{/verdict}}
+</div>

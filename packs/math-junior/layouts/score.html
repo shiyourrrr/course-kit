@@ -1,0 +1,9 @@
+<div class="kicker">总体情况</div>
+<h2 class="title">{{title}}</h2>
+<p class="lead">{{lead}}</p>
+<div class="body">
+  <div class="grid grid-auto">
+    {{#stats}}<article class="panel stat"{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}><b>{{num}}</b><strong>{{term}}</strong><span>{{text}}</span></article>{{/stats}}
+  </div>
+</div>
+{{#note}}<div class="footnote">{{note}}</div>{{/note}}

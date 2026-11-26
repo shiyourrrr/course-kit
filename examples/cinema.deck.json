@@ -1,0 +1,26 @@
+{
+  "pack": "math-junior",
+  "meta": {
+    "subject": "数学",
+    "grade": "八年级",
+    "title": "电影感试验",
+    "teacher": "王老师",
+    "date": "2026-11-21"
+  },
+  "pages": [
+    {
+      "layout": "custom",
+      "htmlFile": "pages/cinema-cover.html",
+      "cssFile": "pages/cinema.css",
+      "background": "images/desk-warm.jpg",
+      "veil": 0.28,
+      "note": "视觉试验：暖黑封面 + 老师插入的背景图 + 热区"
+    },
+    {
+      "layout": "custom",
+      "htmlFile": "pages/cinema-paper.html",
+      "cssFile": "pages/cinema.css",
+      "note": "视觉试验：米色编辑排版"
+    }
+  ]
+}

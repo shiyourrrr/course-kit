@@ -1,0 +1,67 @@
+/* Enter synchronously with the page activation, including snapshot-based navigations. */
+[data-anim] {
+  transition: none;
+  will-change: auto;
+}
+[data-anim="fade"] { --entry-offset: none; }
+[data-anim="blur"] { --entry-offset: none; --entry-filter: blur(8px); }
+[data-anim="fade-up"] { --entry-offset: translateY(14px); }
+[data-anim="fade-down"] { --entry-offset: translateY(-14px); }
+[data-anim="slide-left"] { --entry-offset: translateX(30px); }
+[data-anim="slide-right"] { --entry-offset: translateX(-30px); }
+[data-anim="scale"] { --entry-offset: scale(.94); }
+[data-anim="zoom"] { --entry-offset: scale(1.1); }
+[data-anim="rotate"] { --entry-offset: translateY(10px) rotate(-8deg); }
+[data-anim="flip"] { --entry-offset: perspective(700px) rotateY(26deg); }
+[data-anim="bounce"] { --entry-offset: translateY(28px); --entry-ease: cubic-bezier(.2,1.5,.35,1); }
+
+@keyframes motion-entry {
+  from { opacity: 0; transform: var(--entry-offset, none); filter: var(--entry-filter, none); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  html.anim-ready:not(.motion-hidden) body:not(.no-anim):not(.overview)
+    .slide.active:not(.motion-back-entry) [data-anim].motion-enter {
+    animation: motion-entry var(--motion-dur, 260ms) var(--entry-ease, cubic-bezier(.22,.7,.2,1)) var(--motion-delay, 0ms) backwards;
+  }
+}
+
+.progress { transition: none; }
+:root {
+  --page-from: translateX(24px);
+  --page-to: translateX(-24px);
+}
+:root.motion-back {
+  --page-from: translateX(-24px);
+  --page-to: translateX(24px);
+}
+@keyframes motion-fade-out { to { opacity: 0; } }
+@keyframes motion-fade-in { from { opacity: 0; } }
+@keyframes motion-slide-out { to { opacity: 0; transform: var(--page-to); } }
+@keyframes motion-slide-in { from { opacity: 0; transform: var(--page-from); } }
+
+::view-transition-group(root) { animation-duration: 200ms; }
+::view-transition-old(root) { animation: motion-fade-out 200ms ease both; }
+::view-transition-new(root) { animation: motion-fade-in 200ms ease both; }
+html[data-transition="slide"]::view-transition-group(root) { animation-duration: 240ms; }
+html[data-transition="slide"]::view-transition-old(root) { animation: motion-slide-out 240ms ease both; }
+html[data-transition="slide"]::view-transition-new(root) { animation: motion-slide-in 240ms ease both; }
+.motion-hidden .hud { transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hud { transition: none; }
+  html.anim-ready body:not(.no-anim):not(.overview) [data-build]:not(.in) { opacity: 0 !important; }
+  ::view-transition-group(root), ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}
+
+/* 两层交叉过渡：替代 View Transitions，不拍全页快照（避免首次切页的 50ms 长任务） */
+.slide.slide-entering { animation: motion-fade-in 200ms ease both; }
+.slide.slide-leaving { animation: motion-fade-out 200ms ease both; pointer-events: none; }
+html[data-transition="slide"] .slide.slide-entering { animation: motion-slide-in 240ms ease both; }
+html[data-transition="slide"] .slide.slide-leaving { animation: motion-slide-out 240ms ease both; }
+@media (prefers-reduced-motion: reduce) {
+  .slide.slide-entering, .slide.slide-leaving { animation: none !important; }
+}
+/* 同上：动效版的交叉过渡 */
+.slide.slide-entering { z-index: 2; }
+.slide.slide-leaving { z-index: 1; }

@@ -1,0 +1,10 @@
+<div class="kicker">{{kicker}}</div>
+<h2 class="title">{{title}}</h2>
+{{#page.meta}}<p class="tips">{{.}}</p>{{/page.meta}}
+<div class="body">
+  <p class="stem">{{stem}}</p>
+  {{#hint}}<details class="hint"><summary>思路提示</summary><div class="hint-body">{{hint}}</div></details>{{/hint}}
+  <ol class="steps">{{#steps}}<li{{^configuredBuild}} data-build="{{@no}}"{{/configuredBuild}}{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{text}}</li>{{/steps}}</ol>
+  {{#answer}}<div class="answer"{{^configuredBuild}} data-build="99"{{/configuredBuild}}><span class="label">答案</span>{{answer}}</div>{{/answer}}
+</div>
+{{#trap}}<div class="footnote"{{^configuredBuild}} data-build="100"{{/configuredBuild}}>易错点 · {{trap}}</div>{{/trap}}

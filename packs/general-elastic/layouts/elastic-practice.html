@@ -1,0 +1,17 @@
+<div class="kicker">{{#kicker}}{{kicker}}{{/kicker}}{{^kicker}}随堂练习{{/kicker}}</div>
+<h2 class="title">{{title}}</h2>
+<div class="body">
+  <p class="stem">{{stem}}</p>
+  {{#hint}}
+  <details class="hint">
+    <summary>思路提示</summary>
+    <div class="hint-body">{{hint}}</div>
+  </details>
+  {{/hint}}
+  {{#answer}}
+  <details class="answer">
+    <summary>参考答案</summary>
+    <div class="answer-body">{{answer}}</div>
+  </details>
+  {{/answer}}
+</div>

@@ -1,0 +1,15 @@
+<div class="kicker">{{#kicker}}{{kicker}}{{/kicker}}{{^kicker}}概念{{/kicker}}</div>
+<h2 class="title">{{title}}</h2>
+{{#lead}}<p class="lead">{{lead}}</p>{{/lead}}
+<div class="body">
+  <div class="grid grid-auto" data-stagger>
+    {{#items}}
+    <div class="card" data-anim="fade-up"{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>
+      {{#num}}<span class="card-num">{{num}}</span>{{/num}}
+      {{#term}}<span class="card-term">{{term}}</span>{{/term}}
+      <p class="card-text">{{text}}</p>
+    </div>
+    {{/items}}
+  </div>
+</div>
+{{#note}}<div class="footnote">{{note}}</div>{{/note}}

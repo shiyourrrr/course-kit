@@ -1,0 +1,23 @@
+<div class="kicker">{{#kicker}}{{kicker}}{{/kicker}}{{^kicker}}推导{{/kicker}}</div>
+<h2 class="title">{{title}}</h2>
+{{#goal}}<p class="lead">{{goal}}</p>{{/goal}}
+<div class="body">
+  <div class="cols">
+    {{#figure}}
+    <div class="c5">
+      <div class="figure" data-anim="fade">{{{figure}}}</div>
+    </div>
+    {{/figure}}
+    <div class="{{#figure}}c7{{/figure}}{{^figure}}c12{{/figure}}">
+      <ol class="derive">
+        {{#steps}}
+        <li data-anim="fade-up"{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>
+          <div class="derive-text">{{text}}</div>
+          {{#why}}<div class="derive-why">{{why}}</div>{{/why}}
+        </li>
+        {{/steps}}
+      </ol>
+      {{#conclusion}}<div class="answer"><span class="label">结论</span>{{conclusion}}</div>{{/conclusion}}
+    </div>
+  </div>
+</div>

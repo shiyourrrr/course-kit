@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>主题配色提案：paper / chalk / mono</title>
+<style>
+  body{margin:0;background:#6b7268;font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif}
+  .wrap{width:1280px;margin:0 auto;padding:24px 0 40px}
+  .label{color:#fff;font-size:14px;letter-spacing:.2em;margin:16px 0 8px;opacity:.85}
+  .slide{width:1280px;height:720px;position:relative;overflow:hidden;background:var(--bg);color:var(--ink);
+         padding:48px 72px;box-sizing:border-box;font-size:22px;line-height:1.7}
+  .slide + .slide{margin-top:32px}
+  .kicker{font-size:16px;letter-spacing:.12em;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:18px;
+          display:flex;align-items:center;gap:10px;color:var(--ink-3)}
+  .kicker::before{content:'';width:24px;height:4px;background:var(--accent);display:inline-block}
+  h1{font-family:"Songti SC",SimSun,serif;font-size:72px;line-height:1.15;letter-spacing:-.035em;margin:0 0 10px}
+  h2{font-family:"Songti SC",SimSun,serif;font-size:44px;line-height:1.2;letter-spacing:-.035em;margin:0 0 14px}
+  .lead{color:var(--ink-2);margin:0 0 26px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .card{border-top:1px solid var(--line);padding-top:12px}
+  .card b{display:block;font-size:24px;margin-bottom:4px}
+  .card span{color:var(--ink-3);font-size:20px}
+  .formula{margin-top:26px;display:inline-block;background:var(--accent-soft);color:var(--ink);
+           border-left:4px solid var(--accent);padding:10px 18px;font-size:26px}
+  .meta{margin-top:22px;color:var(--ink-3);font-size:16px;letter-spacing:.08em;border-top:1px solid var(--line);padding-top:10px}
+  .signal{color:var(--signal)}
+  /* paper = 现在的默认 */
+  .paper{--bg:#faf9f4;--bg-soft:#efeee7;--ink:#202823;--ink-2:#39413c;--ink-3:#59615b;
+         --accent:#17574e;--accent-soft:#e7efea;--line:#c5c8bf;--signal:#984721}
+  /* chalk = 投影暗环境 */
+  .chalk{--bg:#14261f;--bg-soft:#1c332a;--ink:#f2f4ec;--ink-2:#dfe4d8;--ink-3:#b8c2b4;
+         --accent:#8fd6b4;--accent-soft:#22453a;--line:#3d5147;--signal:#e8b27a}
+  /* mono = 极简黑白灰 */
+  .mono{--bg:#ffffff;--bg-soft:#f4f4f4;--ink:#141414;--ink-2:#333333;--ink-3:#6b6b6b;
+        --accent:#1a1a1a;--accent-soft:#ececec;--line:#dcdcdc;--signal:#5c5c5c}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="label">PAPER · 现在的默认（纸感，教室投影 / 打印）</div>
+  <div class="slide paper">
+    <div class="kicker">性质表</div>
+    <h2>一张表记住全部性质</h2>
+    <p class="lead">a &gt; 0 与 a &lt; 0 两类对照，顶点与对称轴只看解析式就知道。</p>
+    <div class="row">
+      <div class="card"><b>开口方向</b><span>a &gt; 0 向上，a &lt; 0 向下</span></div>
+      <div class="card"><b>宽窄</b><span>|a| 越大，开口越窄</span></div>
+    </div>
+    <div class="formula">y = ax²，顶点 (0, 0)，对称轴 x = 0</div>
+    <div class="meta">易错：<span class="signal">顶点永远是原点，与 a 无关</span></div>
+  </div>
+
+  <div class="label">CHALK · 黑板绿 + 粉笔白（暗环境投影）</div>
+  <div class="slide chalk">
+    <div class="kicker">性质表</div>
+    <h2>一张表记住全部性质</h2>
+    <p class="lead">a &gt; 0 与 a &lt; 0 两类对照，顶点与对称轴只看解析式就知道。</p>
+    <div class="row">
+      <div class="card"><b>开口方向</b><span>a &gt; 0 向上，a &lt; 0 向下</span></div>
+      <div class="card"><b>宽窄</b><span>|a| 越大，开口越窄</span></div>
+    </div>
+    <div class="formula">y = ax²，顶点 (0, 0)，对称轴 x = 0</div>
+    <div class="meta">易错：<span class="signal">顶点永远是原点，与 a 无关</span></div>
+  </div>
+
+  <div class="label">MONO · 极简黑白灰（打印 / 正式场合）</div>
+  <div class="slide mono">
+    <div class="kicker">性质表</div>
+    <h2>一张表记住全部性质</h2>
+    <p class="lead">a &gt; 0 与 a &lt; 0 两类对照，顶点与对称轴只看解析式就知道。</p>
+    <div class="row">
+      <div class="card"><b>开口方向</b><span>a &gt; 0 向上，a &lt; 0 向下</span></div>
+      <div class="card"><b>宽窄</b><span>|a| 越大，开口越窄</span></div>
+    </div>
+    <div class="formula">y = ax²，顶点 (0, 0)，对称轴 x = 0</div>
+    <div class="meta">易错：<span class="signal">顶点永远是原点，与 a 无关</span></div>
+  </div>
+
+</div>
+</body>
+</html>

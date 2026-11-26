@@ -1,0 +1,33 @@
+:root {
+  --bg: #f3f6f2;
+  --bg-soft: #e6ede7;
+  --ink: #1b2826;
+  --ink-2: #334744;
+  --ink-3: #5b706c;
+  --accent: #2c5e5a;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcebe8;
+  --signal: #b83b2a;
+  --line: #bfd0ca;
+  --font-display: "Songti SC", SimSun, "Noto Serif CJK SC", serif;
+  --font-body: var(--font-sans);
+}
+/* 青瓷墨韵：宣纸细纹 + 中式细画框 + 朱砂色强调线 */
+.slide {
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(44, 94, 90, 0.025) 0 1px, transparent 1px 28px),
+    radial-gradient(circle at 88% 85%, rgba(44, 94, 90, 0.09), transparent 45%);
+  box-shadow: inset 0 0 0 16px transparent, inset 0 0 0 17.5px rgba(44, 94, 90, 0.28);
+}
+.slide .slide-head, .slide h1 {
+  border-bottom: 1.5px solid rgba(184, 59, 42, 0.38);
+  padding-bottom: 8px;
+}
+.slide .card, .slide .formula-box, .slide .note-item {
+  border-radius: 3px;
+  border: 1px solid rgba(44, 94, 90, 0.24);
+  border-left: 4px solid var(--signal);
+  background: rgba(255, 255, 252, 0.88);
+  box-shadow: none;
+}

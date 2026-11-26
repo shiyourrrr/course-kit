@@ -1,0 +1,33 @@
+node_modules/
+.npm-cache/
+.shots*/
+.tmp/
+*.log
+.codex-*.md
+# package-lock.json 要进版本库：半年后 npm install 才会装出同一套依赖（KaTeX 换版本会改公式 HTML）
+app-data/
+
+examples/*.deck.json.prev
+
+dist/
+
+# 从 PPT 导入的课件属于派生内容，不入库
+examples/pptx-*.deck.json
+examples/pptx-*.deck.html
+packs/pptx-*/
+
+examples/sources/
+
+# 导入参照的解析结果（含用户 PPT 背景图）
+references/
+materials/
+papers/
+books/
+questions/
+
+# 导入参照抽出的素材
+assets/
+
+# 素材库（从参照 PPT 抽出）
+assets/
+packs/user-template-*/

@@ -1,0 +1,29 @@
+:root {
+  --bg: #f2faf5;
+  --bg-soft: #e2f2e8;
+  --ink: #14291e;
+  --ink-2: #2c4a3a;
+  --ink-3: #527361;
+  --accent: #166534;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcfce7;
+  --signal: #c2410c;
+  --line: #bdd6c5;
+  --font-display: "Songti SC", SimSun, "Noto Serif CJK SC", serif;
+  --font-body: var(--font-sans);
+}
+/* 森系薄荷：斜向浅雾渐变 + 轻盈浮起圆角卡片 */
+.slide {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(135deg, #ecfdf3 0%, #f6fcf8 52%, #e6f6ec 100%);
+}
+.slide .card, .slide .formula-box, .slide .note-item {
+  border-radius: 16px;
+  border: 1px solid rgba(22, 101, 52, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 18px rgba(22, 101, 52, 0.07);
+}
+.slide .kicker, .slide .badge {
+  border-radius: 999px;
+}

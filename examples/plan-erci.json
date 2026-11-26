@@ -1,0 +1,76 @@
+{
+  "topic": "二次函数 y = ax² 的图像与性质",
+  "subject": "数学",
+  "grade": "九年级",
+  "lessonType": "新授课",
+  "duration": 45,
+  "focus": ["概念讲透", "推导证明", "易错辨析", "简单的题目练习巩固"],
+  "objectives": [
+    "说出 $y = ax^2$ 的图像是抛物线，顶点在原点、对称轴是 $y$ 轴",
+    "由 $a$ 的符号判断开口方向，由 $|a|$ 判断开口宽窄",
+    "说出 $a > 0$ 与 $a < 0$ 时的增减性与最值",
+    "会用“列表—描点—连线”画 $y = ax^2$ 的草图"
+  ],
+  "keyPoints": [
+    "$a$ 的符号决定开口方向",
+    "$|a|$ 决定开口宽窄",
+    "顶点在原点、对称轴是 $y$ 轴",
+    "$a > 0$：最小值 0；$a < 0$：最大值 0"
+  ],
+  "knowledgePoints": [
+    "$a \\ne 0$ 的原因（退化成直线）",
+    "图像是抛物线",
+    "开口方向由 $a$ 的符号决定",
+    "开口宽窄由 $|a|$ 决定",
+    "对称轴是 $y$ 轴（$x=0$）",
+    "顶点在原点，是最低/最高点",
+    "关于 $y$ 轴对称（代数解释）",
+    "增减性（$a>0$ 与 $a<0$ 两类）",
+    "最值（$a>0$ 最小值 0，$a<0$ 最大值 0）",
+    "列表—描点—连线的画法"
+  ],
+  "difficulties": [
+    "把“$|a|$ 越大开口越窄”讲清楚（不是记结论）",
+    "增减性要写清区间：$x < 0$ 时怎样、$x > 0$ 时怎样",
+    "描点连线要用平滑曲线，不能连成折线"
+  ],
+  "structure": [
+    { "section": "开场", "role": "cover+objectives", "pages": 2, "minutes": 2, "note": "封面 + 四条目标", "covers": [] },
+    { "section": "情境导入", "role": "context", "pages": 1, "minutes": 3, "note": "喷泉水柱 / 投篮轨迹：为什么是弯的", "covers": [] },
+    { "section": "是什么", "role": "concept", "pages": 1, "minutes": 4, "note": "$y=ax^2$ 与一般式、正比例函数的关系", "covers": [] },
+    { "section": "为什么 a≠0", "role": "concept", "pages": 1, "minutes": 3, "note": "退化成直线的情况，反例先行", "covers": ["$a \\ne 0$ 的原因（退化成直线）"] },
+    { "section": "图像怎么来的", "role": "explain", "pages": 1, "minutes": 5, "note": "列表—描点—连线，y=x² 的五个点，强调平滑曲线", "covers": ["列表—描点—连线的画法"] },
+    {
+      "section": "图像性质",
+      "role": "explain",
+      "pages": 1,
+      "minutes": 4,
+      "note": "抛物线、开口方向、对称轴、顶点（从图上读）",
+      "covers": ["图像是抛物线", "开口方向由 $a$ 的符号决定", "对称轴是 $y$ 轴（$x=0$）", "顶点在原点，是最低/最高点"]
+    },
+    { "section": "为什么对称", "role": "derive", "pages": 1, "minutes": 4, "note": "由 x 与 −x 的平方相等，推出关于 y 轴对称", "covers": ["关于 $y$ 轴对称（代数解释）"] },
+    {
+      "section": "增减性与最值",
+      "role": "explain",
+      "pages": 1,
+      "minutes": 4,
+      "note": "a>0 与 a<0 两类，配同一张图左右对照",
+      "covers": ["增减性（$a>0$ 与 $a<0$ 两类）", "最值（$a>0$ 最小值 0，$a<0$ 最大值 0）"]
+    },
+    { "section": "参数 a 的作用", "role": "explain", "pages": 1, "minutes": 3, "note": "y=x²、y=2x²、y=0.5x²、y=−x² 四图同屏", "covers": ["开口宽窄由 $|a|$ 决定"] },
+    { "section": "例题", "role": "example", "pages": 1, "minutes": 4, "note": "画 y=2x² 草图，点按逐步", "covers": [] },
+    { "section": "变式", "role": "practice", "pages": 1, "minutes": 2, "note": "给图判断 a 的符号与大小，提示折叠", "covers": [] },
+    { "section": "易错辨析", "role": "compare", "pages": 1, "minutes": 3, "note": "三个常见错法，先左后右", "covers": [] },
+    { "section": "当堂练", "role": "practice", "pages": 1, "minutes": 2, "note": "两道小题：判开口、写顶点", "covers": [] },
+    { "section": "小结", "role": "summary", "pages": 1, "minutes": 1, "note": "知识结构：一条抛物线、三个量（a、顶点、对称轴）", "covers": [] },
+    { "section": "作业", "role": "homework", "pages": 1, "minutes": 1, "note": "2 必做 + 1 选做", "covers": [] },
+    { "section": "收尾", "role": "cover", "pages": 1, "minutes": 1, "note": "下节预告：配方与平移", "covers": [] }
+  ],
+  "questions": { "inClass": 2, "homework": 3 },
+  "media": [
+    "y = x² 的五个描点图",
+    "y = x²、y = 2x²、y = 0.5x²、y = −x² 四图对比",
+    "增减性示意图（同一张图左右两侧对照）"
+  ],
+  "outOfScope": ["$y = ax^2 + bx + c$ 的配方（下节）", "图像的平移变换（再下节）", "复杂应用题建模"]
+}

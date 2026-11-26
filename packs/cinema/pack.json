@@ -1,0 +1,47 @@
+{
+  "id": "cinema",
+  "name": "电影感 · 暗夜与米色",
+  "subject": "通用",
+  "grade": "通用",
+  "version": "0.1.0",
+  "license": "MIT",
+  "theme": "theme.css",
+  "authors": [],
+  "limits": {
+    "kicker": 20,
+    "title": 22,
+    "subtitle": 60,
+    "statement": 40,
+    "note": 80,
+    "lead": 80,
+    "term": 16,
+    "text": 70,
+    "label": 12
+  },
+  "layouts": [
+    {
+      "id": "cover",
+      "name": "暗夜封面",
+      "when": "第 1 页；配 background 背景图效果最好",
+      "slots": ["kicker", "title", "subtitle", "cta", "ctaGoto", "hint", "hotspots[].label", "hotspots[].goto"]
+    },
+    {
+      "id": "statement",
+      "name": "金句 / 章节过渡",
+      "when": "一页只说一句话：本节的三个问题、一句结论、章节切换",
+      "slots": ["kicker", "statement", "points[].text", "note"]
+    },
+    {
+      "id": "paper",
+      "name": "米色编辑页",
+      "when": "正文页：上方引入与图示，下方可放 3–4 条要点，每条配 2–3 行说明",
+      "slots": ["kicker", "title", "lead", "figure", "items[].term", "items[].text", "note"]
+    },
+    {
+      "id": "closing",
+      "name": "收束页",
+      "when": "最后一页：小结 + 下节预告",
+      "slots": ["kicker", "title", "points[].text", "note"]
+    }
+  ]
+}

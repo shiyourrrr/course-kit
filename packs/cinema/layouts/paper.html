@@ -1,0 +1,14 @@
+<div class="cine cine-paper">
+  <header class="cine-top"><span>{{meta.grade}} · {{meta.subject}}</span><span>{{meta.title}}</span></header>
+  <main class="cine-body">
+    <div class="cine-intro">
+      <div><div class="cine-kicker">{{kicker}}</div><h2>{{title}}</h2>{{#lead}}<p class="cine-lead">{{lead}}</p>{{/lead}}</div>
+      {{#figure}}<div class="cine-plate">{{{figure}}}</div>{{/figure}}
+    </div>
+    <div class="cine-items">
+      {{#items}}<article class="cine-item"><span class="cine-no">{{@no}}</span><div>{{#term}}<h3>{{term}}</h3>{{/term}}<p>{{text}}</p></div></article>{{/items}}
+    </div>
+    {{#note}}<p class="cine-note">{{note}}</p>{{/note}}
+  </main>
+  <footer class="cine-foot"><span>{{meta.subject}} · {{meta.title}}</span><span>全屏 F</span></footer>
+</div>

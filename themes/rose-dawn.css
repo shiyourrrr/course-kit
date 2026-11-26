@@ -1,0 +1,27 @@
+:root {
+  --bg: #faf4f2;
+  --bg-soft: #f2e7e4;
+  --ink: #2e2436;
+  --ink-2: #52455e;
+  --ink-3: #7c6f87;
+  --accent: #b4637a;
+  --accent-ink: #ffffff;
+  --accent-soft: #f4dfe5;
+  --signal: #286983;
+  --line: #dfd0ce;
+  --font-display: "Songti SC", SimSun, "Noto Serif CJK SC", serif;
+  --font-body: var(--font-sans);
+}
+/* 玫瑰晨雾：晨光柔粉渐变 + 纤细描边文艺卡片 */
+.slide {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(180, 99, 122, 0.13), transparent 46%),
+    radial-gradient(circle at 88% 82%, rgba(40, 105, 131, 0.09), transparent 48%);
+}
+.slide .card, .slide .formula-box, .slide .note-item {
+  border-radius: 16px;
+  border: 1px solid rgba(180, 99, 122, 0.22);
+  background: rgba(255, 252, 251, 0.9);
+  box-shadow: 0 4px 16px rgba(46, 36, 54, 0.05);
+}

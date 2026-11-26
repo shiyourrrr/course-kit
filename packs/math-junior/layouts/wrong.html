@@ -1,0 +1,13 @@
+<div class="kicker">{{tag}} · 典型错题</div>
+<h2 class="title">{{title}}</h2>
+<div class="body">
+  <p class="stem">{{stem}}</p>
+  <div class="callout callout-warn"><strong class="callout-title">学生错解</strong>{{student}}</div>
+  <div class="grid grid-2">
+    <div class="panel panel-soft"{{^configuredBuild}} data-build="1"{{/configuredBuild}}><strong class="callout-title">错在何处</strong>{{diagnose}}</div>
+    <div class="panel"><strong class="callout-title">订正过程</strong>
+      <ol class="steps">{{#correct}}<li{{^configuredBuild}} data-build="{{@no}}"{{/configuredBuild}}{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{text}}</li>{{/correct}}</ol>
+    </div>
+  </div>
+</div>
+{{#variant}}<div class="footnote"{{^configuredBuild}} data-build="99"{{/configuredBuild}}>追问 · {{variant}}</div>{{/variant}}

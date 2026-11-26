@@ -1,0 +1,85 @@
+{
+  "decks": {
+    "gougu": {
+      "pages": 11,
+      "layouts": ["cover", "objectives", "concept", "formula", "explain", "custom", "example", "practice", "compare", "summary", "homework"],
+      "anchors": {
+        "1": "直角三角形三边关系的发现、证明与应用",
+        "2": "说出勾股定理的内容",
+        "3": "直角三角形的三条边",
+        "4": "两条直角边的平方和，等于斜边的平方",
+        "5": "定理说的是哪三块面积",
+        "6": "四个三角形，拼出",
+        "7": "已知两条直角边，求斜边",
+        "8": "换一条边，还认得出来吗",
+        "9": "勾股定理与它的逆定理",
+        "10": "勾股定理只在直角三角形里成立",
+        "11": "教材 P28 习题"
+      },
+      "katex": {"4": 2, "6": 8},
+      "builds": {"6": 4}
+    },
+    "yicihanshu": {
+      "pages": 12,
+      "layouts": ["cover", "objectives", "context", "concept", "formula", "custom", "derive", "example", "practice", "compare", "summary", "homework"],
+      "anchors": {
+        "1": "到它的图像",
+        "2": "这个条件为什么不能少",
+        "3": "打车时，车费怎么算",
+        "4": "什么是一次函数",
+        "5": "核心式子",
+        "6": "的正负，决定直线往哪走",
+        "7": "待定系数法",
+        "8": "已知两点，求解析式",
+        "9": "只看式子，能说出图像吗",
+        "10": "正比例函数 vs 一次函数",
+        "11": "定方向",
+        "12": "教材 P45 习题"
+      },
+      "katex": {"5": 8, "6": 13},
+      "builds": {"6": 4}
+    },
+    "erci": {
+      "pages": 19,
+      "layouts": ["cover", "objectives", "context", "concept", "concept", "explain", "explain", "explain", "derive", "explain", "explain", "table", "example", "practice", "compare", "practice", "summary", "homework", "summary"],
+      "anchors": {
+        "1": "从一条曲线，到一个家族",
+        "3": "喷泉的水柱为什么是弯的",
+        "6": "列表、描点、连线",
+        "9": "为什么图像一定关于",
+        "12": "一张表记住全部性质",
+        "17": "今天带走四句话"
+      },
+      "katex": {"12": 2},
+      "builds": {}
+    },
+    "tixi": {
+      "pages": 8,
+      "layouts": ["objectives", "exercise", "exercise", "variant", "practice", "mistake", "summary", "homework"],
+      "anchors": {
+        "1": "同一条抛物线",
+        "2": "最低点在哪里",
+        "4": "平移和翻折",
+        "6": "找到自己出错的第一步"
+      },
+      "katex": {"2": 6, "3": 8, "4": 4, "5": 8, "8": 1},
+      "builds": {"2": 4, "3": 4, "4": 1}
+    },
+    "jiangping": {
+      "pages": 9,
+      "layouts": ["score", "table", "table", "wrong", "wrong", "wrong", "mistake", "homework", "summary"],
+      "anchors": {
+        "1": "二次函数单元测",
+        "4": "顶点不在区间内",
+        "5": "除以未知数",
+        "7": "找到自己出错的第一步"
+      },
+      "katex": {"4": 8, "5": 10, "6": 3, "8": 2, "9": 2},
+      "builds": {"4": 4, "5": 4, "6": 4}
+    }
+  },
+  "questions": {
+    "student": {"count": 5, "answers": false},
+    "teacher": {"count": 5, "answers": true, "checked": 4}
+  }
+}

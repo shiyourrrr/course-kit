@@ -1,0 +1,27 @@
+:root {
+  --bg: #1c222e;
+  --bg-soft: #262f40;
+  --ink: #eceff4;
+  --ink-2: #d8dee9;
+  --ink-3: #9aa7bd;
+  --accent: #88c0d0;
+  --accent-ink: #141923;
+  --accent-soft: #2e3b4e;
+  --signal: #ebcb8b;
+  --line: #3b465c;
+  --font-display: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  --font-body: var(--font-sans);
+}
+/* 北欧暗夜：极光微光渐变 + 半透明玻璃卡片 + 冰蓝细边 */
+.slide {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 18% 0%, rgba(136, 192, 208, 0.18), transparent 52%),
+    radial-gradient(ellipse at 90% 100%, rgba(129, 161, 193, 0.16), transparent 50%);
+}
+.slide .card, .slide .formula-box, .slide .note-item {
+  border-radius: 14px;
+  border: 1px solid rgba(136, 192, 208, 0.26);
+  background: rgba(38, 47, 64, 0.78);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}

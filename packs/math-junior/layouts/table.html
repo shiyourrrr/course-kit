@@ -1,0 +1,12 @@
+<div class="kicker">{{#kicker}}{{kicker}}{{/kicker}}{{^kicker}}性质表{{/kicker}}</div>
+<h2 class="title">{{title}}</h2>
+{{#lead}}<p class="lead">{{lead}}</p>{{/lead}}
+<div class="body">
+  <table class="table">
+    {{#head}}<thead><tr{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{#cells}}<th>{{.}}</th>{{/cells}}</tr></thead>{{/head}}
+    <tbody>
+      {{#rows}}<tr{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{#cells}}<td>{{.}}</td>{{/cells}}</tr>{{/rows}}
+    </tbody>
+  </table>
+</div>
+{{#note}}<div class="footnote">{{note}}</div>{{/note}}

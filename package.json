@@ -1,0 +1,25 @@
+{
+  "name": "course-kit",
+  "version": "0.2.0",
+  "description": "HTML 课件模板引擎：AI 只填内容，版式由模板保证",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node tools/test.mjs",
+    "render": "node src/render.mjs",
+    "lint": "node tools/lint.mjs",
+    "check": "node tools/check.mjs",
+    "questions": "node tools/questions.mjs examples/questions.md",
+    "demo": "node src/render.mjs examples/gougu.deck.json && node tools/lint.mjs examples/gougu.deck.html",
+    "plan": "node tools/plan.mjs examples/plan-yicihanshu.json"
+  },
+  "dependencies": {
+    "@jvmr/pptx-to-html": "^1.1.2",
+    "jsdom": "^31.0.1",
+    "katex": "^0.19.1",
+    "mammoth": "^1.13.0",
+    "parse5": "^8.1.1",
+    "playwright-core": "^1.65.1"
+  }
+}

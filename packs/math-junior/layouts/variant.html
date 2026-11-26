@@ -1,0 +1,13 @@
+<div class="kicker">变式训练</div>
+<h2 class="title">{{title}}</h2>
+<p class="lead">原题要点 · {{origin}}</p>
+<div class="body">
+  <div class="grid grid-auto" data-stagger>
+    {{#items}}<article class="panel" data-anim="fade-up"{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>
+      <h3>{{change}}</h3>
+      <p class="stem">{{stem}}</p>
+      {{#hint}}<p class="tips">提示 · {{hint}}</p>{{/hint}}
+    </article>{{/items}}
+  </div>
+  {{#answer}}<div class="answer"{{^configuredBuild}} data-build="1"{{/configuredBuild}}><span class="label">核对答案</span>{{answer}}</div>{{/answer}}
+</div>

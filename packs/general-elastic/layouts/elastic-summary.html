@@ -1,0 +1,9 @@
+<div class="kicker">课堂小结</div>
+<h2 class="title">{{title}}</h2>
+<div class="rule"></div>
+<div class="body">
+  <ul class="points">
+    {{#points}}<li{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{text}}</li>{{/points}}
+  </ul>
+  {{#closing}}<p class="closing">{{closing}}</p>{{/closing}}
+</div>

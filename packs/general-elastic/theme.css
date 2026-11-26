@@ -1,0 +1,115 @@
+/* 通用弹性版式皮肤层：消费导入模板的 --accent / --bg / --ink，保证内容页全量字号 >= 18px */
+:root {
+  --elastic-display: 60px;
+  --elastic-h1: 40px;
+  --elastic-h2: 25px;
+  --elastic-body: 21px;
+  --elastic-caption: 18px;
+}
+
+.slide[data-layout^="elastic-"] {
+  padding: 48px 72px !important;
+  font-size: calc(var(--elastic-body) * var(--page-scale, 1));
+  background-color: var(--bg, #ffffff);
+  color: var(--ink, #1e293b);
+  --accent-soft: color-mix(in srgb, var(--accent, #5b21b6) 11%, var(--bg, #ffffff));
+  --bg-soft: color-mix(in srgb, var(--accent, #5b21b6) 6%, var(--bg, #ffffff));
+  --line: color-mix(in srgb, var(--accent, #5b21b6) 24%, var(--bg, #ffffff));
+  --signal: var(--accent, #5b21b6);
+  --ink-2: color-mix(in srgb, var(--ink, #1e293b) 86%, var(--bg, #ffffff));
+  --ink-3: color-mix(in srgb, var(--ink, #1e293b) 68%, var(--bg, #ffffff));
+}
+
+/* 模板同源装饰顶栏与右角几何徽记，让弹性内容页与保真页视觉统一 */
+.slide[data-layout^="elastic-"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--accent, #5b21b6) 0%, color-mix(in srgb, var(--accent, #5b21b6) 55%, #ffffff) 100%);
+  pointer-events: none;
+}
+
+.slide[data-layout^="elastic-"]::after {
+  content: "";
+  position: absolute;
+  right: 28px;
+  top: 22px;
+  width: 96px;
+  height: 96px;
+  background-image: var(--ck-skin-motif, radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--accent, #5b21b6) 18%, transparent) 0%, transparent 70%));
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right;
+  opacity: 0.24;
+  pointer-events: none;
+}
+
+.slide[data-layout^="elastic-"] .kicker,
+.slide[data-layout^="elastic-"] .card .card-num,
+.slide[data-layout^="elastic-"] .aim .aim-num,
+.slide[data-layout^="elastic-"] .tag,
+.slide[data-layout^="elastic-"] .caption,
+.slide[data-layout^="elastic-"] .footnote,
+.slide[data-layout^="elastic-"] .answer .label {
+  font-size: calc(var(--elastic-caption) * var(--page-scale, 1));
+}
+
+.slide[data-layout^="elastic-"] h2.title {
+  font-size: calc(var(--elastic-h1) * var(--page-scale, 1));
+  color: var(--accent, #5b21b6);
+  margin-top: 10px;
+}
+
+.slide[data-layout^="elastic-"] .lead,
+.slide[data-layout^="elastic-"] .stem,
+.slide[data-layout^="elastic-"] .scene-text,
+.slide[data-layout^="elastic-"] .card .card-text,
+.slide[data-layout^="elastic-"] .aim .aim-text,
+.slide[data-layout^="elastic-"] .points li,
+.slide[data-layout^="elastic-"] .tasks li,
+.slide[data-layout^="elastic-"] .steps li,
+.slide[data-layout^="elastic-"] .derive-text,
+.slide[data-layout^="elastic-"] .cmp-col li,
+.slide[data-layout^="elastic-"] .cond,
+.slide[data-layout^="elastic-"] .explain,
+.slide[data-layout^="elastic-"] .tips,
+.slide[data-layout^="elastic-"] .derive-why,
+.slide[data-layout^="elastic-"] .answer,
+.slide[data-layout^="elastic-"] .verdict,
+.slide[data-layout^="elastic-"] details.hint,
+.slide[data-layout^="elastic-"] details.answer {
+  font-size: calc(var(--elastic-body) * var(--page-scale, 1));
+  line-height: 1.56;
+}
+
+.slide[data-layout^="elastic-"] .card .card-term,
+.slide[data-layout^="elastic-"] .cmp-col h3,
+.slide[data-layout^="elastic-"] .closing,
+.slide[data-layout^="elastic-"] .scene-q {
+  font-size: calc(var(--elastic-h2) * var(--page-scale, 1));
+}
+
+.slide[data-layout^="elastic-"] .card,
+.slide[data-layout^="elastic-"] .cmp-col {
+  padding: 20px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  background: var(--bg-soft);
+}
+
+.slide[data-layout^="elastic-"] .answer,
+.slide[data-layout^="elastic-"] .verdict,
+.slide[data-layout^="elastic-"] details.answer {
+  border-left: 4px solid var(--accent);
+  background: var(--bg-soft);
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+
+.slide[data-layout^="elastic-"] details:not([open]) > :not(summary) {
+  display: none !important;
+}

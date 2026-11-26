@@ -1,0 +1,123 @@
+{
+  "id": "general-elastic",
+  "name": "通用弹性版式",
+  "kind": "elastic-system",
+  "subject": "通用",
+  "grade": "通用",
+  "version": "1.0.0",
+  "license": "MIT",
+  "theme": "theme.css",
+  "limits": {
+    "kicker": 18,
+    "title": 24,
+    "subtitle": 42,
+    "lead": 80,
+    "term": 14,
+    "text": 56,
+    "scene": 120,
+    "question": 64,
+    "note": 80,
+    "caption": 38,
+    "tag": 10,
+    "formula": 84,
+    "condition": 58,
+    "explain": 88,
+    "goal": 70,
+    "conclusion": 64,
+    "stem": 116,
+    "answer": 66,
+    "hint": 58,
+    "verdict": 58,
+    "closing": 34,
+    "tips": 58,
+    "footnote": 58,
+    "num": 8,
+    "why": 48
+  },
+  "layouts": [
+    {
+      "id": "elastic-cover",
+      "name": "弹性封面",
+      "role": "cover",
+      "when": "封面页弹性版式",
+      "slots": ["title", "subtitle", "duration"]
+    },
+    {
+      "id": "elastic-objectives",
+      "name": "学习目标（弹性）",
+      "role": "content",
+      "when": "开课前 2-5 条学习目标",
+      "slots": ["title", "items[].num", "items[].text", "footnote"],
+      "capacity": { "items": 5 }
+    },
+    {
+      "id": "elastic-context",
+      "name": "情境导入（弹性）",
+      "role": "content",
+      "when": "生活场景导入与设问",
+      "slots": ["kicker", "title", "scene", "question", "note"]
+    },
+    {
+      "id": "elastic-concept",
+      "name": "概念要点（弹性）",
+      "role": "content",
+      "when": "新概念与 2-4 个要点卡片",
+      "slots": ["kicker", "title", "lead", "items[].num", "items[].term", "items[].text", "note"],
+      "capacity": { "items": 4 }
+    },
+    {
+      "id": "elastic-formula",
+      "name": "核心公式 / 规律（弹性）",
+      "role": "content",
+      "when": "核心定理、公式或规律",
+      "slots": ["kicker", "title", "formula", "condition", "explain", "note"]
+    },
+    {
+      "id": "elastic-derive",
+      "name": "多步推导（弹性）",
+      "role": "content",
+      "when": "2-4 步推导或归纳过程",
+      "slots": ["kicker", "title", "goal", "steps[].text", "steps[].why", "conclusion"],
+      "capacity": { "steps": 4 }
+    },
+    {
+      "id": "elastic-example",
+      "name": "例题精讲（弹性）",
+      "role": "content",
+      "when": "典型例题题干、分步解答与答案",
+      "slots": ["tag", "title", "stem", "steps[].text", "answer"],
+      "capacity": { "steps": 4 }
+    },
+    {
+      "id": "elastic-practice",
+      "name": "随堂练习（弹性）",
+      "role": "content",
+      "when": "课堂即时练习与折叠提示/答案",
+      "slots": ["kicker", "title", "stem", "hint", "answer"]
+    },
+    {
+      "id": "elastic-compare",
+      "name": "对比辨析（弹性）",
+      "role": "content",
+      "when": "双栏对比与易混点总结",
+      "slots": ["kicker", "title", "left.title", "left.items[].text", "right.title", "right.items[].text", "verdict"],
+      "capacity": { "items": 4 }
+    },
+    {
+      "id": "elastic-summary",
+      "name": "课堂小结（弹性）",
+      "role": "content",
+      "when": "3-5 条核心收获总结",
+      "slots": ["title", "points[].text", "closing"],
+      "capacity": { "points": 5 }
+    },
+    {
+      "id": "elastic-homework",
+      "name": "课后作业（弹性）",
+      "role": "content",
+      "when": "分层课后作业任务",
+      "slots": ["kicker", "title", "tasks[].text", "tips"],
+      "capacity": { "tasks": 5 }
+    }
+  ]
+}

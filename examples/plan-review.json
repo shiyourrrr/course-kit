@@ -1,0 +1,147 @@
+{
+  "topic": "二次函数单元测讲评",
+  "subject": "数学",
+  "grade": "九年级",
+  "lessonType": "试卷讲评",
+  "duration": 45,
+  "focus": [
+    "定位错步",
+    "订正迁移"
+  ],
+  "objectives": [
+    "指出错解中第一个无效步骤",
+    "独立重做并用取值条件检验答案"
+  ],
+  "keyPoints": [
+    "区间内的最值",
+    "零因式法求根",
+    "不同根与交点个数"
+  ],
+  "knowledgePoints": [
+    "区间内的最值",
+    "零因式法求根",
+    "不同根与交点个数"
+  ],
+  "difficulties": [
+    "判断取等条件能否满足"
+  ],
+  "structure": [
+    {
+      "section": "总体情况",
+      "role": "score",
+      "pages": 1,
+      "minutes": 2,
+      "note": "根据 40 人模拟班级统计确定重点",
+      "covers": []
+    },
+    {
+      "section": "得分分布",
+      "role": "table",
+      "pages": 1,
+      "minutes": 2,
+      "note": "标出所在分数段",
+      "covers": []
+    },
+    {
+      "section": "逐题错误率",
+      "role": "table",
+      "pages": 1,
+      "minutes": 3,
+      "note": "圈出失分题",
+      "covers": []
+    },
+    {
+      "section": "区间最值",
+      "role": "wrong",
+      "pages": 1,
+      "minutes": 6,
+      "note": "检查顶点横坐标是否可取",
+      "covers": [
+        "区间内的最值"
+      ]
+    },
+    {
+      "section": "横轴交点",
+      "role": "wrong",
+      "pages": 1,
+      "minutes": 5,
+      "note": "用零因式法找全根",
+      "covers": [
+        "零因式法求根"
+      ]
+    },
+    {
+      "section": "重根辨析",
+      "role": "wrong",
+      "pages": 1,
+      "minutes": 5,
+      "note": "写出不同的交点坐标",
+      "covers": [
+        "不同根与交点个数"
+      ]
+    },
+    {
+      "section": "错因归类",
+      "role": "mistake",
+      "pages": 1,
+      "minutes": 4,
+      "note": "给三份错解各写一句诊断",
+      "covers": []
+    },
+    {
+      "section": "独立重做",
+      "role": "practice",
+      "pages": 1,
+      "minutes": 4,
+      "note": "合上答案重做失分题",
+      "covers": []
+    },
+    {
+      "section": "迁移检验",
+      "role": "variant",
+      "pages": 1,
+      "minutes": 5,
+      "note": "改变区间再求最值",
+      "covers": [
+        "区间内的最值"
+      ]
+    },
+    {
+      "section": "同桌互查",
+      "role": "compare",
+      "pages": 1,
+      "minutes": 4,
+      "note": "对照不同根与不同交点",
+      "covers": [
+        "不同根与交点个数"
+      ]
+    },
+    {
+      "section": "订正任务",
+      "role": "homework",
+      "pages": 1,
+      "minutes": 3,
+      "note": "记录错步、原因和验算",
+      "covers": []
+    },
+    {
+      "section": "小结",
+      "role": "summary",
+      "pages": 1,
+      "minutes": 2,
+      "note": "说出下次要检查的条件",
+      "covers": []
+    }
+  ],
+  "questions": {
+    "inClass": 5,
+    "homework": 2
+  },
+  "media": [
+    "模拟得分分布表",
+    "逐题错误率表"
+  ],
+  "outOfScope": [
+    "二次函数应用建模"
+  ]
+}

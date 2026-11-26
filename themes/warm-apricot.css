@@ -1,0 +1,28 @@
+:root {
+  --bg: #fdf7ef;
+  --bg-soft: #f5e9d9;
+  --ink: #2c2118;
+  --ink-2: #4f3d2f;
+  --ink-3: #7a6452;
+  --accent: #b8532a;
+  --accent-ink: #ffffff;
+  --accent-soft: #f7e3d6;
+  --signal: #2563eb;
+  --line: #e2cfb8;
+  --font-display: "Songti SC", SimSun, "Noto Serif CJK SC", serif;
+  --font-body: var(--font-sans);
+}
+/* 暖阳米杏：手账点阵底纹 + 大圆角温润卡片 + 柔和暖影 */
+.slide {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(rgba(184, 83, 42, 0.14) 1px, transparent 1px),
+    radial-gradient(circle at 10% 10%, rgba(245, 158, 11, 0.09), transparent 45%);
+  background-size: 24px 24px, 100% 100%;
+}
+.slide .card, .slide .formula-box, .slide .note-item {
+  border-radius: 18px;
+  border: 1.5px solid #ead8c3;
+  background: rgba(255, 253, 249, 0.94);
+  box-shadow: 0 8px 24px rgba(146, 64, 14, 0.07);
+}

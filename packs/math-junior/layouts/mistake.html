@@ -1,0 +1,10 @@
+<div class="kicker">错因归类</div>
+<h2 class="title">{{title}}</h2>
+<p class="lead">{{lead}}</p>
+<div class="body">
+  <table class="table">
+    <thead><tr><th>错法</th><th>原因</th><th>纠正</th></tr></thead>
+    <tbody>{{#items}}<tr{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}><td>{{wrong}}</td><td>{{why}}</td><td>{{fix}}</td></tr>{{/items}}</tbody>
+  </table>
+</div>
+{{#note}}<div class="footnote">{{note}}</div>{{/note}}

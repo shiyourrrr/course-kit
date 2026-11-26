@@ -1,0 +1,308 @@
+{
+  "id": "math-junior",
+  "name": "初中数学",
+  "subject": "数学",
+  "grade": "初中",
+  "version": "0.1.0",
+  "license": "MIT",
+  "theme": "theme.css",
+  "authors": [],
+  "limits": {
+    "kicker": 20,
+    "title": 26,
+    "subtitle": 46,
+    "lead": 90,
+    "term": 14,
+    "text": 62,
+    "scene": 130,
+    "question": 70,
+    "statement": 40,
+    "note": 90,
+    "caption": 40,
+    "tag": 8,
+    "formula": 90,
+    "condition": 62,
+    "explain": 96,
+    "stem": 130,
+    "answer": 70,
+    "hint": 62,
+    "verdict": 62,
+    "closing": 34,
+    "tips": 62,
+    "footnote": 62,
+    "meta": 42,
+    "trap": 62,
+    "origin": 70,
+    "change": 24,
+    "wrong": 54,
+    "why": 54,
+    "fix": 62,
+    "student": 90,
+    "diagnose": 62,
+    "variant": 62,
+    "num": 12
+  },
+  "layouts": [
+    {
+      "id": "cover",
+      "name": "封面",
+      "when": "每份课件第 1 页",
+      "slots": [
+        "title",
+        "subtitle",
+        "duration"
+      ]
+    },
+    {
+      "id": "objectives",
+      "name": "学习目标",
+      "when": "开课前 2-4 条可检验的目标",
+      "slots": [
+        "title",
+        "items[].num",
+        "items[].text",
+        "footnote"
+      ],
+      "capacity": {
+        "items": 7,
+        "note": "按约 30 字/条的实测上限；文字更长时会更早溢出，以「自检」为准"
+      }
+    },
+    {
+      "id": "concept",
+      "name": "概念 / 定义",
+      "when": "一个新概念，2-4 个要点卡片",
+      "slots": [
+        "kicker",
+        "title",
+        "lead",
+        "items[].num",
+        "items[].term",
+        "items[].text",
+        "note"
+      ],
+      "capacity": {
+        "items": 6,
+        "note": "按约 30 字/条的实测上限；文字更长时会更早溢出，以「自检」为准"
+      }
+    },
+    {
+      "id": "context",
+      "name": "情境导入",
+      "when": "上课开头：一段生活场景 + 一个问题，把学生带进来",
+      "slots": [
+        "kicker",
+        "title",
+        "scene",
+        "question",
+        "note"
+      ]
+    },
+    {
+      "id": "table",
+      "name": "性质表 / 对比表",
+      "when": "把多条性质并成一张表：head 是表头行，rows 是数据行（每行是单元格数组）",
+      "slots": [
+        "kicker",
+        "title",
+        "lead",
+        "head[].cells",
+        "rows[].cells",
+        "note"
+      ]
+    },
+    {
+      "id": "explain",
+      "name": "图示讲解",
+      "when": "一张图 + 右侧 2-4 条标注：讲图里各部分的含义与关系（figure 页只能放图，讲不了）",
+      "slots": [
+        "kicker",
+        "title",
+        "img",
+        "svg",
+        "caption",
+        "points[].num",
+        "points[].term",
+        "points[].text"
+      ],
+      "capacity": {
+        "points": 4,
+        "note": "按约 30 字/条的实测上限；文字更长时会更早溢出，以「自检」为准"
+      }
+    },
+    {
+      "id": "derive",
+      "name": "多步推导 / 证明",
+      "when": "3-5 步的推导或证明：每步一句做什么，下面一行为什么；可带一张图",
+      "slots": [
+        "kicker",
+        "title",
+        "goal",
+        "figure",
+        "steps[].text",
+        "steps[].why",
+        "conclusion"
+      ]
+    },
+    {
+      "id": "formula",
+      "name": "定理 / 公式",
+      "when": "一条需要推导或记忆的公式；formula 字段自带 $$ 定界符",
+      "slots": [
+        "kicker",
+        "title",
+        "formula",
+        "condition",
+        "explain",
+        "note"
+      ]
+    },
+    {
+      "id": "figure",
+      "name": "图示",
+      "when": "几何图形、函数图像、示意图；svg 写内联 <svg>，img 写 <img src=\"images/x.png\">（渲染时自动内联 base64）",
+      "slots": [
+        "kicker",
+        "title",
+        "img",
+        "svg",
+        "caption"
+      ]
+    },
+    {
+      "id": "example",
+      "name": "例题精讲",
+      "when": "一道完整例题 + 3-5 步解题过程 + 答案",
+      "slots": [
+        "tag",
+        "title",
+        "stem",
+        "steps[].text",
+        "answer"
+      ]
+    },
+    {
+      "id": "practice",
+      "name": "随堂练习",
+      "when": "变式训练；答案默认折叠，点开才显示",
+      "slots": [
+        "kicker",
+        "title",
+        "stem",
+        "hint",
+        "answer"
+      ]
+    },
+    {
+      "id": "compare",
+      "name": "对比 / 辨析",
+      "when": "两个易混概念左右对照",
+      "slots": [
+        "kicker",
+        "title",
+        "left.title",
+        "left.items[].text",
+        "right.title",
+        "right.items[].text",
+        "verdict"
+      ]
+    },
+    {
+      "id": "summary",
+      "name": "小结",
+      "when": "3-5 条要点 + 一句收束",
+      "slots": [
+        "title",
+        "points[].text",
+        "closing"
+      ],
+      "capacity": {
+        "points": 9,
+        "note": "按约 30 字/条的实测上限；文字更长时会更早溢出，以「自检」为准"
+      }
+    },
+    {
+      "id": "homework",
+      "name": "课后作业",
+      "when": "分层作业（必做/选做）",
+      "slots": [
+        "kicker",
+        "title",
+        "tasks[].text",
+        "tips"
+      ],
+      "capacity": {
+        "tasks": 8,
+        "note": "按约 30 字/条的实测上限；文字更长时会更早溢出，以「自检」为准"
+      }
+    },
+    {
+      "id": "exercise",
+      "name": "习题精讲",
+      "when": "学生先独立读题，再逐步核对解法",
+      "slots": [
+        "kicker",
+        "title",
+        "meta",
+        "stem",
+        "hint",
+        "steps[].text",
+        "answer",
+        "trap"
+      ]
+    },
+    {
+      "id": "variant",
+      "name": "变式训练",
+      "when": "并排比较改动条件后的解法",
+      "slots": [
+        "title",
+        "origin",
+        "items[].change",
+        "items[].stem",
+        "items[].hint",
+        "answer"
+      ]
+    },
+    {
+      "id": "mistake",
+      "name": "错因归类",
+      "when": "并列梳理错法、原因和纠正动作",
+      "slots": [
+        "title",
+        "lead",
+        "items[].wrong",
+        "items[].why",
+        "items[].fix",
+        "note"
+      ]
+    },
+    {
+      "id": "wrong",
+      "name": "典型错题讲评",
+      "when": "定位错解的第一步，再逐步订正",
+      "slots": [
+        "tag",
+        "title",
+        "stem",
+        "student",
+        "diagnose",
+        "correct[].text",
+        "variant"
+      ]
+    },
+    {
+      "id": "score",
+      "name": "总体情况",
+      "when": "用三到四个统计数字确定讲评重点",
+      "slots": [
+        "title",
+        "stats[].num",
+        "stats[].term",
+        "stats[].text",
+        "lead",
+        "note"
+      ]
+    }
+  ]
+}

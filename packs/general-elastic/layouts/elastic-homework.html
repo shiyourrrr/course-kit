@@ -1,0 +1,8 @@
+<div class="kicker">{{#kicker}}{{kicker}}{{/kicker}}{{^kicker}}课后作业{{/kicker}}</div>
+<h2 class="title">{{title}}</h2>
+<div class="body">
+  <ol class="tasks">
+    {{#tasks}}<li{{#itemGroup}} data-build="{{itemGroup}}"{{/itemGroup}}>{{text}}</li>{{/tasks}}
+  </ol>
+</div>
+{{#tips}}<p class="tips">{{tips}}</p>{{/tips}}
