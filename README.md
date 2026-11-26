@@ -1,271 +1,118 @@
-# course-kit
+# course-kit（课件工作台）
 
-## 三种用法
+给中小学老师用的本地备课工具：输入课题或挂上教材，快速生成整节课、课后作业和 A4 试卷，在浏览器里微调完，导出成**单个断网可放的 HTML 文件**，拷进 U 盘或发微信群，到教室电脑双击就能全屏放映。
 
-1. **网页界面（推荐）**。安装 Node.js 后双击 `start.bat`，选择课件和页面，修改后点「保存」。点「导出 HTML」即可得到能离线放映的课件。首次安装依赖需要联网，依赖装好后可断网使用。
-2. **命令行**。运行 `npm install`，再运行 `npm run render -- examples/erci.deck.json` 生成课件。
-3. **只改文件**。用文本编辑器修改 `examples/*.deck.json`，交给同事渲染，或在网页中打开后导出。已有 HTML 可直接双击放映。
+![课件工作台界面](docs/preview.png)
 
-> 截图占位：左侧选课件，中间调整页面顺序，右侧编辑文字并预览放映效果。
+## 为什么要做这个
 
-> 一句话：**AI 只负责填内容，版式由模板保证。**
-> 输入一个 `deck.json`，输出一个能双击打开、全屏演示、断网可用的 HTML 课件。
+用通用 AI 直接画 PPT，常见的问题不是不好看，而是**版式不稳**——字一多就溢出、换台电脑缺字体、改一页全乱套，最后还得花一小时手动调格式。
 
-这不是「让 AI 画 PPT」的项目。PPT 的问题不是 AI 画得丑，而是**每次画得都不一样**——溢出、字体缺失、改一处坏全局。
-这里把版式从 AI 手里拿走：模板作者（老师）定义好每页长什么样，AI 只填字。
+`course-kit` 把**版式**和**内容**拆开：
+- 每种课型（封面、目标、概念、公式、例题、练习、对比、小结、作业）都由固定页型和字数上限兜底，不容易撑爆屏幕；
+- AI 只负责按教学重点往槽位里填内容、写讲稿、出变式题；
+- 最终产物是自包含的单文件 HTML（公式字体 KaTeX 和图片全部内联），不依赖教室网络，也不用装 Office 或浏览器插件。
 
-## 工作流：先对齐，再出方案，最后才做课件
+## 主要功能
 
-页数和重点**不由工具决定**，由老师决定。所以顺序是：
-
-1. **问** —— `prompts/teacher-intake.md` 里的 5 个问题（课型 / 时长 / 重心 / 学生易错 / 硬约束）
-2. **方案卡** —— 出一份 `plan.json`，打印给老师看：多少页、每段几分钟、重点在哪、题量多少
-   ```bash
-   npm run plan        # 渲染 examples/plan-yicihanshu.json 成一张方案卡
-   ```
-   方案卡会检查：分钟合计是否对得上、讲授页占比、有没有情境导入与图示、重心说要"推导"却排了没推导的页
-3. **确认后生成** —— 老师改完/点头，才写 `deck.json`
-
-跳过第 1、2 步直接生成 11 页，就是这个项目最典型的失败方式。
+- **一句话生成整节课**：选年级、课型和内容饱满度，AI 先拆教学重难点再逐页填内容，同时自动生成每页口述讲稿（支持导出 Markdown 或 A4 打印版讲稿）。
+- **教材库与原书页码溯源**：支持导入 Word（`.docx`）、纯文本、以及 PDF / MinerU 结果包（`.zip`），保留公式与插图；生成课件时可按原书页码范围（如 `22-25`）精准截取，并支持无损校准纸质课本页码偏移。
+- **可视化编辑与微调**：左侧选课件和页序，中间改文字/公式，右侧实时双缓冲预览；切到「微调版面」后可直接拖拽、拉角缩放，双击画布文字原地修改。
+- **12 套主题与 8 种切页动效**：支持整本换主题，也支持单独给某一页换主题；内置 11 种元素入场动效与点击逐步揭示，上课按 `A` 键可随时一键关闭全部动效。
+- **互动演示块**：内置 6 套数学参数化模板（二次函数、一次函数、三角函数、几何动点、勾股拼图等）、24 个精选 PhET 中文实验（备课按需缓存、上课断网可用），也支持导入本地 `.html` 或嵌入 GeoGebra / Desmos 链接。
+- **AI 智能出卷与课后作业**：
+  - 课后作业可选总题量（3 / 5 / 6 / 8 / 10 题）、AI 自由度（严格紧扣教材 / 标准变式 / 自由拓展）和难度侧重；
+  - 新建试卷支持按单选、多选、判断、填空、解答精确配题量生成，进审核清单勾选修改后，一键导出**学生版 / 教师版** A4 打印 HTML。
+- **导入学校 PPT / HTML 模板**：把 `.pptx` 转为可用模板包（导入时可选是否把装饰图抽进素材库），素材库支持分组查看和批量清理。
+- **新手引导与缓存清理**：首次打开提供 6 步高亮指引（右上角 `?` 可随时重看）；设置面板自带本机缓存统计与一键清理。
 
 ## 快速开始
 
+### 方式一：本地源码运行
+
+需要 Node.js 20+（推荐 Node 24）：
+
 ```bash
+git clone https://github.com/shiyourrrr/course-kit.git
+cd course-kit
 npm install
-npm run demo        # 渲染 examples/gougu.deck.json → examples/gougu.deck.html
+node server.mjs --open
 ```
 
-### 免安装版（给不想装 Node 的老师）
+启动后浏览器会自动打开 `http://127.0.0.1:5178`（Windows 也可以直接双击 `start.bat`）。
+
+### 方式二：打包成免安装版（发给不想装 Node 的同事）
 
 ```bash
 node tools/portable.mjs
-# → dist/课件工作台/（约 113 MB，其中 node.exe 88 MB、运行时依赖 24 MB）
 ```
 
-- 老师拿到 `dist/课件工作台/`（或压成 zip，约 41 MB），**双击「启动课件工作台.bat」**即可，浏览器自动打开
-- 自带 Node 运行时与 `node_modules`，不需要装任何东西；课件存在该目录的 `examples/` 里，换电脑整包拷走
-- 不随包分发：你导入的 PPT 原文件（`examples/sources/`）与派生课件（`examples/pptx-*`）
-- 端口固定 `5178`；关掉黑色窗口即停止服务
-- 注意：这是「免安装文件夹」，不是单文件 exe；要单文件需要 Node SEA 打包（未做）
+会在 `dist/课件工作台/` 生成自带 `node.exe` 与运行依赖的独立文件夹（压成 zip 约 41 MB，不含本机 API Key 和个人教材数据）。对方解压后双击「**启动课件工作台.bat**」即可使用。
 
-打开 `examples/gougu.deck.html`：
+### 配置 AI（可选）
 
-| 操作 | 键 |
-|---|---|
-| 下一页 / 上一页 | `→` `↓` `空格` `PageDown` / `←` `↑` `PageUp` |
-| 点按揭示下一步（有 `data-build` 时先揭示，揭示完才翻页） | `→` / `空格` |
-| 全屏 | `F` |
-| 总览（九宫格） | `Esc` 或 `G` |
-| 热区跳页 | 点击带 `data-goto` 的元素可跳页 |
-| **一键关动效**（投影卡顿 / 学生不适时应变） | `A` |
-| 打印 / 导出 PDF | `P`（Chrome：另存为 PDF，保持 16:9） |
+本地编辑、微调、导出、离线演示和题单排版均**无需联网、无需 API Key**。如需使用 AI 生成整课、单页改写、写讲稿或智能出卷：
 
-## 三种颗粒度的「改」
+1. 在 [DeepSeek 开放平台](https://platform.deepseek.com)（或任意 OpenAI 兼容接口）创建 API Key；
+2. 打开工作台右上角「⚙ 设置」，粘贴 Key 并保存；
+3. 如需直接上传 PDF 教材做公式与页码解析，可在同一面板选填 [MinerU](https://mineru.net/apiManage) API Token（不填也可直接导入 MinerU 网页版导出的 `.zip`）。
 
-AI 不是只能填字段。按需求改不同的层：
+所有密钥只保存在本机 `app-data/settings.json`（Windows 下自动收紧文件 ACL 仅当前用户可访问），不会被打包或上传。
 
-| 颗粒度 | 谁改 | 改什么 | 会不会污染别人 |
-|---|---|---|---|
-| **填内容** | AI | `deck.json` 的字段 | 不会 |
-| **改这一页的版面** | AI | 自定义页 `html` / 页内 `css`（自动只作用于本页） | 不会 |
-| **改通用版式** | 人 | `layouts/*.html`、`base.css` | 会，所有用这个包的课件都变 |
-| **沉淀** | 人 / AI | `tools/promote.mjs` 把自定义页变成页型 | 变强了，不是污染 |
+## 放映快捷键
 
-判断标准就一句：**同一版面第二次出现，就该沉淀；第一次允许自由发挥。**
+导出后的单文件 HTML 双击即可在任意现代浏览器放映：
+
+| 操作 | 快捷键 |
+| --- | --- |
+| 下一页 / 下一步揭示 | `→`、`↓`、`空格`、`PageDown` |
+| 上一页 | `←`、`↑`、`PageUp` |
+| 全屏 / 退出全屏 | `F` / `Esc` |
+| 九宫格总览 | `G` 或 `Esc` |
+| 一键关闭 / 开启全部动效 | `A` |
+
+## 命令行工具与测试
+
+如果你习惯用命令行批量渲染或做二次开发：
 
 ```bash
-# AI 现场写了一页（examples/pages/proof-area.html），用过后沉淀成页型
-node tools/promote.mjs examples/gougu.deck.json 6 proof-area --name "面积法证明"
+# 渲染单份课件为离线 HTML
+node src/render.mjs examples/gougu.deck.json --out examples/gougu.deck.html
+
+# 静态自检（占位符 / 公式 / 外链 / 动效白名单）
+node tools/lint.mjs examples/gougu.deck.html
+
+# 真实浏览器量测页面是否溢出（需本机安装 Chrome 或 Edge）
+node tools/check.mjs examples/gougu.deck.html
+
+# 运行全套回归测试（334 条断言 + 8 份渲染 SHA-256 基线 + 38 项浏览器回归）
+node tools/test.mjs
+
+# 运行专项单元测试（MinerU / 演示库 / 缓存与素材 / AI 出卷 / 审计回归）
+node --test test/mineru.test.mjs test/widget-library.test.mjs test/p5-audit-fixes.test.mjs test/cache-and-assets.test.mjs test/exam-ai.test.mjs
 ```
 
-沉淀会：写 `layouts/proof-area.html`（含页内 css）→ 登记 `pack.json` → 把 deck 里那页改成 `layout:"proof-area"`。
+## 目录概览
 
-## 动效是属性，不是代码
-
-AI 不需要写 CSS 动画，只加属性：
-
-```html
-<h2 class="title" data-anim="fade-up">标题</h2>
-<div class="panel" data-build="1">点一下才出现</div>
-<div class="stack" data-stagger>子元素依次入场</div>
-```
-
-- 7 种入场：`fade-up` `fade-down` `slide-left` `slide-right` `fade` `scale` `blur`
-- `data-build="1..n"` 是**讲课节奏**：按右方向键逐步揭示，揭示完才翻页
-- 没写属性的页面，运行时自动给一个克制的默认入场——所以「模板页」不会静止得像 PDF
-- 写错属性值不会崩，但会静默失效，所以 `lint` 会校验（`data-anim="wobble"` 直接报错）
-- 课上按 `A` 一键关掉全部动效；`prefers-reduced-motion` 与打印也会自动关
-
-## 图片：截图就行
-
-截图 → 存到 `examples/images/`（或任意相对路径）→ deck 里写：
-
-```html
-<img class="figure-img" src="images/squares-on-sides.png" alt="三边上的正方形">
-```
-
-渲染时自动读成 base64 内联，**产物仍是单个文件，可以直接发微信**。查找顺序：deck 目录 → 自定义页目录 → pack 目录；单张上限 3MB。
-建议文件名带页码或主题（`p5-squares.png`），半年后还认得出是哪一页的图。
-
-## 题单：Markdown → 学生版 / 教师版
-
-```bash
-node tools/questions.mjs examples/questions.md            # 一次出两份
-node tools/questions.mjs examples/questions.md --mode teacher
-```
-
-题目就用 Markdown 写——老师能读能改，AI 也能写，改动能 diff：
-
-```markdown
-### 1. [单选] 在 Rt△ABC 中，∠C = 90°，$a=3$，$b=4$，则 $c=$（　）
-- [ ] 3
-- [x] 5
-> 答案：5
-> 解析：由 $a^2+b^2=c^2$ 得 $c=\sqrt{3^2+4^2}=5$。
-```
-
-- 题型：`[单选]` `[多选]` `[判断]` `[填空]` `[解答]`
-- **学生版**自动去掉答案解析；**教师版**勾出正确项（☑）、附答案与解析
-- A4 打印友好：题目不跨页、解答题自带横线留白、页眉有姓名/班级/日期 —— 浏览器 `Ctrl+P` 存 PDF 即可
-- 格式是给你自己用的：**工具不碰任何题库**，题目来源你自己把握
-
-## 课上临时改：一句话
-
-```bash
-node tools/quick.mjs examples/gougu.deck.json "第 3 页标题改成 三条边的名字"
-node tools/quick.mjs examples/gougu.deck.json "删掉第 9 页"
-node tools/quick.mjs examples/gougu.deck.json "主题色改成 #0f766e"
-```
-
-- **离线规则**认这几种说法（教室没网也能用）：改某页某字段、删页、换页序、换主题色
-- **联网时**（设 `DEEPSEEK_API_KEY` 或 `OPENAI_API_KEY`）可以说得更自由，模型返回结构化 ops，支持整页重写
-- 改完自动重渲染 + 自检，浏览器按 F5 就能看到
-
-## 目录结构
-
-```
+```text
 course-kit/
-├── src/
-│   ├── template.mjs    # 40 行模板引擎：{{字段}} {{{原始HTML}}} {{#列表}}...{{/列表}}
-│   ├── base.css        # 版式骨架（所有学科共用，改它要慎重）
-│   ├── runtime.js      # 演示运行时：缩放、翻页、总览、打印
-│   └── render.mjs      # 渲染器：deck.json + pack → 单个 HTML
-├── packs/              # ★ 模板包＝一个学科/学段。这里是产品真正的资产
-│   └── math-junior/    #   初中数学：19 个页型
-│       ├── pack.json   #   页型清单 + 字数上限
-│       ├── theme.css   #   主题：只改变量
-│       └── layouts/    #   每页一个 HTML 片段
-├── examples/           # gougu.deck.json（勾股定理，11 页）+ 渲染产物
-│   ├── pages/          # 自定义页（AI 自己写的整页 HTML）
-│   └── images/         # 本地图片（渲染时自动内联）
-├── prompts/deck-gen.md # ★ 给 AI 的契约：一句话题目 → deck.json
-└── tools/
-    ├── new-pack.mjs    # 一键新建学科模板包
-    ├── promote.mjs     # 把自定义页沉淀成页型
-    ├── quick.mjs       # 课上一句话改课件（离线规则 + 可选模型）
-    ├── questions.mjs   # Markdown 题单 → 学生版 / 教师版 A4
-    ├── outline.mjs     # 打印大纲：每页页型/字数/公式数
-    ├── lint.mjs        # 静态自检：占位符/公式/动效属性/外链
-    ├── check.mjs       # 真实量溢出（需要本机 Chrome/Edge）
-    └── figures/        # 用 Pillow 画教学示意图的脚本
+├── server.mjs               # 本地 HTTP 服务与 API 路由（默认 5178 端口）
+├── app/                     # 工作台前端与业务模块
+│   ├── index.html / app.js / app.css
+│   ├── ai.mjs               # AI 填页、两阶段规划、单页改写、讲稿生成
+│   ├── exam-ai.mjs          # AI 智能出卷与课后作业题量/自由度控制
+│   ├── books.mjs / mineru.mjs # 教材库、MinerU 解析、页码截取与无损校准
+│   ├── widget-library.mjs   # PhET 缓存、本地 HTML 与外链演示库
+│   ├── cache-store.mjs      # 本机缓存清理与素材库管理
+│   └── tour.mjs             # 6 步新手引导
+├── src/                     # 离线单文件渲染器、运行时与清洗模块
+├── packs/                   # 页型模板包（math-junior / cinema / general-elastic 等）
+├── themes/                  # 12 套内置视觉主题 CSS
+├── examples/                # 8 份内置示例课件
+├── tools/                   # 打包、自检、PPT 导入与回归测试脚本
+└── test/                    # 单元测试与渲染 SHA-256 基线
 ```
 
-## 加一个新的年级 / 学科
+## 开源许可
 
-```bash
-node tools/new-pack.mjs physics-junior "初中物理"   # 以 math-junior 为蓝本复制
-```
-
-然后改三样东西：
-
-1. `packs/physics-junior/theme.css` —— 换主色、字体、圆角（**只改变量，别碰 base.css**）
-2. `packs/physics-junior/layouts/*.html` —— 改文案、加页型（比如「实验演示」「受力分析」）
-3. `packs/physics-junior/pack.json` —— 登记页型，写清楚每个页型什么时候用、有哪些槽
-
-**加页型的门槛**：写一个 HTML 片段，放几个 `{{字段}}`，在 `pack.json` 里登记一行。不需要写 JS、不需要写 CSS（除非真要新样式）。
-
-### 习题课与试卷讲评页型
-
-| 页型 | 课堂用途 | 主要内容 |
-|---|---|---|
-| `exercise` 习题精讲 | 让学生先做，再逐步核对 | 题号与分值、题干、提示、解题步骤、答案与易错点 |
-| `variant` 变式训练 | 比较同一原题改动条件后的解法 | 原题要点、变式卡片、提示、统一答案 |
-| `mistake` 错因归类 | 横向对照多种错误 | 常见错法、原因、纠正动作 |
-| `wrong` 典型错题讲评 | 围绕一道题定位第一处错步 | 原题、学生错解、诊断、逐步正解、追问 |
-| `score` 总体情况 | 根据全班答题表现确定讲评重点 | 数字卡、课堂结论、统计口径 |
-
-## 导入第三方 HTML 模板
-
-GitHub 上有大量现成的 HTML 演示模板，导入后就能当模板包用：
-
-**网页界面**：左栏「＋ 导入模板」→ 选一个 `.html` 文件 → 自动切页、抽样式、推断槽位 → 直接用于新建课件。
-
-**命令行**：
-
-```bash
-node tools/import-template.mjs 某个模板.html --name "杂志风" --source https://原项目地址
-# → 生成 packs/imported-杂志风/（pack.json + theme.css + layouts/page-N.html）
-```
-
-**它自动做的**：
-
-- 去掉 `<script>`、行内事件、外链资源（离线 + 安全）
-- 抽出页面里的 `<style>`，把 `body/html` 选择器改写成 `.slide`、`section` 改写成 `.tpl-page`
-- 按 `<section>` 或 `<hr>` 切页，每页一个 layout
-- 第一个标题 → `{{title}}`，前三个段落 → `{{text}}` / `{{text2}}` / `{{text3}}`
-- 类名隔离：模板里的 `.tag` / `.card` / `.title` 和我们的组件撞车时，先恢复默认再让模板样式覆盖
-
-**做不到的（会提示）**：
-
-- reveal.js 的垂直分页会被拍平
-- 依赖外部 CSS / JS 插件的模板（先另存成单文件再导入）
-- 复杂组件（图表、时间线）不会被字段化——导入后**只能改文字，版式固定**
-
-**许可**：导入前确认原模板许可证；把作者和链接填进 `pack.json` 的 `source` 字段。AGPL / 非商用模板不要用于对外分发。
-
-## 三层自检
-
-```bash
-npm test                                                  # 回归测试：会先重新渲染，再按页断言（不需要浏览器，约 0.4 秒）
-npm run lint -- examples/gougu.deck.html                  # 静态自检（不需要浏览器）
-node tools/check.mjs examples/gougu.deck.html --shots .shots  # 真实量溢出 + 每页截图（需要本机 Chrome/Edge）
-```
-
-- `test` 查：页数、页序、每页锚句、公式数、`data-build` 数、图片可解码、无外链、无模板残留；期望值在 `test/expected.json`
-- `lint` 查：占位符残留、公式是否渲染、CSS 括号、每页内容量、动效属性合法性、外部依赖
-- `check` 量：每页**真实溢出**（`scrollHeight > 720`）和横向越界，可同时给每页截图
-
-> 溢出时的修复顺序：**删字 → 拆页 → 换页型**。不要靠缩字号硬塞——投影仪上 18px 以下学生真的看不清。
-
-## 为什么是单文件
-
-- 老师双击就能放，不用装软件、不用联网、不怕教室电脑没网
-- 能直接发微信群 / 存 U 盘
-- 代价：KaTeX 字体内联，约 400 KB。发之前可以再压（见 `SPEC.md` 的「优化体积」）
-
-## 已知边界（别指望它现在就能干的事）
-
-- **版式与动效未经人眼验收**：本仓库的截图/量测依赖本机浏览器，开发环境起不了浏览器，所以 `examples/gougu.deck.html` 请你自己打开翻一遍
-- **默认入场是"温和版"**：如果你想更活泼，让 AI 显式加 `data-anim`；想更稳，把 `A` 按下去讲
-- 没有编辑器 UI：改课件 = 改 `deck.json` / 自定义页，再渲染（这是刻意的，点选式编辑器后面再说）
-- 没有配图生成：图要么内联 SVG，要么用 `tools/figures/` 的脚本画，要么外部生成后放进 `images/`
-- 初中数学包有 19 个页型，提供新授课、习题课和试卷讲评示例。
-
-## 许可
-
-MIT。模板随便改、随便商用、随便改成你自己的学科包——只保留出处即可。
-
-老师想自己换背景时，把图放进 deck 旁的 `images/`，在对应页加上 `"background": "images/desk.jpg"`，可用 `veil` 调整遮罩深浅。
-## 配置 AI（可选）
-
-1. 打开 [DeepSeek 开放平台](https://platform.deepseek.com) 注册账号。
-2. 在平台充值，几元即可开始使用。
-3. 创建 API key，在工作台右上角齿轮中粘贴并保存。默认模型为 `deepseek-chat`，可修改模型和兼容接口地址。
-
-密钥保存在本机 `app-data/settings.json`。本地改短、拆行、字号和撤销均可离线使用。AI 仅编辑当前页已有文字，拆页可用页面列表的「复制」。
-
-## 导入 PPT
-
-点击左栏「＋ 导入 PPT」，选择 30 MB 以内的 `.pptx` 文件。转换在本机 Node 中完成，成功后编辑器会打开新课件。每张幻灯片生成一个固定布局的保真页，页内元素不可重排。图片和表格的还原效果取决于原模板。
-
-命令行也可运行 `node tools/pptx-import.mjs "课件.pptx" --name "显示名"`。模板保存在 `packs/`，可直接打开的课件保存在 `examples/`。
+MIT License。欢迎自由修改、自建学科页型包或在校内分发，保留出处即可。
